@@ -1,0 +1,292 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{6 Feb 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}%2minutes
+\frametitle{Class outline}
+\begin{itemize}
+\item Assignment 2 discussion
+\item Strings in Python - overview
+\item Formatting strings
+\item Assignment 3 Description
+\item Practice Exercises
+\end{itemize}
+\end{frame} %Chapter 5 in the text boo
+
+\begin{frame}
+\frametitle{}
+\Large Assignment 2 discussion
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Question 1}
+\begin{itemize}
+\item Note: my description was: "I will provide you a starter snippet, which asks for two numeric inputs from
+user. Your task is to edit what I gave you, and make it work."
+\end{itemize} \scriptsize
+\begin{verbatim}
+num1 = input("Enter a number: ")
+num2 = input("Enter another number: ")
+#Write your logic to test whether num1 and num2 are numbers below:
+is_num1_numeric = num1.isnumeric()
+is_num2_numeric = num2.isnumeric()
+if is_num1_numeric and is_num2_numeric:
+#write a line to print the sum of num1 and num2. 
+      print(int(num1) + int(num2))
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Question 2}
+(I asked to save this as a python file)
+\begin{verbatim}
+str = input("Enter a string: ")
+if str.isalpha():
+    print(str + "es")
+else:
+    print("please enter a proper string")
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Question 3}
+(I asked to save this as a python file)
+\begin{verbatim}
+num = input("Enter a number: ")
+if num.isnumeric():
+   if int(num)%2 == 0:
+         print("even")
+   else:
+         print("odd")
+else:
+   print("Enter a number!")
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{Question 4}
+\begin{itemize}
+\item put parantheses around 1-2
+\item "PYTHON".isupper(), "PYTHON".lower()
+\item 6**2 or 6*6; 6**3 or 6*6*6 (You can also use math module in Python, but I was looking for simpler solutions).
+\item len("python")
+\end{itemize}
+note: These assignments are deliberately made easier than classwork (\textbf{something} should be easy to do!)
+\end{frame}
+
+%CODE solutions for Last class stuff
+\begin{frame}[fragile]
+\frametitle{Programs from last class}
+\begin{itemize}
+\item Program with multiple functions
+\item Program to print multiplication tables
+\end{itemize}
+- see the posted solutions in the forum for Thursday. My solutions are also uploaded on Canvas.
+
+\bigskip
+
+If you go through and understand what happened, and write a program like that yourself without looking at the solution, you are good (for now!). 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Strings in Python: Basics} \small
+\begin{itemize} 
+\item A String is considered a sequence of characters in programming. 
+\item In Python, you use square brackets to access individual characters in a string (indexing starts with 0, not 1). \pause
+\item What do the following give you? 
+\begin{verbatim}
+course = "ENGL 516"
+letter1 = course[0]
+letter2 = course[1]
+letterX = course[1.9] 
+letterY = course[10] 
+letter11 = course[-1]
+letter11= course[-5]
+letter11 = course[-15]
+\end{verbatim} \pause 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Strings in Python are immutable}
+\begin{itemize}
+\item What does it mean? - It means that you cannot change individual characters in an existing string. 
+\item i.e., if there is a string variable assignment: course = "ENGL 516", writing: letter1 = course[0] is valid, but writing course[0] = "a" is not. \pause
+\item (But, checking if course[0] is "a" in some boolean expression like: course[0] == "a" is valid!) \pause
+\item This is also valid: \scriptsize
+\begin{verbatim}
+s = "python"
+s = "valid"
+\end{verbatim} \normalsize
+(What will s have? where did the immutability go?)
+\item You can create a new string which is an altered version of the original string.  (e.g., t = s[0]+"acation")
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Traversing through a string}
+\begin{verbatim}
+course = "ENGL 516"
+index = 0
+while index<len(course):
+    letter = course[index]
+    print(letter)
+    index = index+1
+\end{verbatim}
+
+Short exercise: Write the for loop equivalent of this while loop.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Traversing through a string: For Loop}
+\begin{itemize}
+\item One way:
+\begin{verbatim}
+course = "ENGL 516"
+for i in range(0,len(course)):
+    letter = course[i]
+    print(letter)
+\end{verbatim}
+\item Another way:
+\begin{verbatim}
+course = "ENGL 516"
+for i in course:
+    print(i)
+\end{verbatim}
+\end{itemize}
+\end{frame}
+%Talk about this: Optional reading: "The Joys (and Woes) of the Craft of Programming" by Frederick P.Brooks 
+% \url{http://home.adelphi.edu/sbloch/class/adages/joy.html}
+
+\begin{frame}
+\frametitle{Exercise on String traversal}
+\framesubtitle{from textbook}
+Write a while loop that starts at the last character in the string and works its way backwards to the first character in the string, printing each letter on a separate line, except backwards. 
+ 
+\medskip
+For example, if I have a string ENGLISH, your program should print: \\
+H \\
+S \\
+I \\
+L \\
+G \\
+N \\
+E 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exercise on String traversal:Solution}
+\begin{verbatim}
+i = len(some_string)
+while i>0:
+    print(some_string[i-1])
+    i = i-1
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Another exercise on String traversal}
+\framesubtitle{from textbook}
+Write a function that takes two arguments: a string and a character, and returns the number of times the character occurs in this string as the result. Here is a skeleton for the function definition:
+\footnotesize
+\begin{verbatim}
+def countChar(someString, someChar):
+   count = 0
+   for anyChar in someString:
+       #Write your 2 lines of code here.
+   return count
+
+stringInput = input("Enter a string: ")
+charInput  = input("Enter a char: ")
+print("The number of times ", charInput, "occured in", stringInput,
+    "is",countChar(stringInput,charInput))
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{String "Slicing"}
+\begin{itemize}
+\item Slice is a partial segment from a string, of any length. 
+\begin{verbatim}
+str="Python programming"
+print(string[7:10])
+\end{verbatim}
+- this gives me "pro"
+\item The operator [n:m] returns the part of the string starting from the nth character and up to (but not including) the mth character. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{String "Slicing": Practice}
+Try these things on the console, and note the output.
+\begin{enumerate}
+\item string="Python programming"
+\item print(string[5:])
+\item print(string[:3])
+\item print(string[9:9])
+\item print(string[:])
+\item print(string[9:3])
+\item print(string[-1])
+\item print(string[::-1])
+\end{enumerate}
+\end{frame}
+
+\begin{frame} %Directly give an overview here, and start about the terminology later.
+\frametitle{Built-in functions for strings}
+\framesubtitle{called "Methods"}
+Go back to python console, and type the following and observe the result.
+\begin{itemize}
+\item example="Some Example String"
+\item print(example.upper())
+\item print(example.lower())
+\item print(example.startswith("S"))
+\item print(example.endswith("S"))
+\item print(example.isdigit())
+\item print(example.find("e"))
+\item print(example.find("e",5))
+\item print(example.find("tri")
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Assignment 3 Description}
+\begin{itemize}
+\item Topics: Strings, Loops
+\item Deadline: 17th Feb 2018
+\item 10\% of your final grade
+\item 3 questions (2.5, 2.5, 5)
+\item Questions described in the document on Canvas
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Next Class}
+\begin{itemize}
+\item Topics: String manipulations continued, and Regular expressions
+\item Readings: Chapter 11 in the text book.
+\item Mandatory exercise(s): Submit Assignment 1 by this midnight! 
+\item Optional: Exercise 5 at the end of Chapter 6 in the textbook.
+\item Remainder: Assignment 2 has to be submitted by 25th February. 
+\item Assignment 3 is already uploaded, if you want to start early.  
+\end{itemize}
+\end{frame}
+\end{document}

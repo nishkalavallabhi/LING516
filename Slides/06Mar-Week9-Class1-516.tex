@@ -1,0 +1,269 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{6 March 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}%2minutes
+\frametitle{Class outline}
+\begin{itemize}
+\item Web applications with Bottle - continuation
+\item Small exercises and practice
+\item Midterm feedback
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+Web application development with Bottle
+\end{center}
+\end{frame}
+
+%1-2 review slides
+\begin{frame}
+\frametitle{Web-applications with Bottle}
+\begin{itemize}
+\item @route
+\item @get, @post 
+\item Python functions that implement the logic (same as in regular programs)
+\item request - to read input data from browser into Python code
+\item html (to render stuff on the browser to the user)
+\item run()
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Exercise-1 from previous class}
+\begin{itemize}
+\item write a Python program using Bottle, that shows two text fields and a button in the initial screen: First Name, Last Name:
+\item In the program, have a function, that gets called when the user submits this information, which takes these two values, and returns - ”Hello” + FirstName + LastName on the screen
+\end{itemize}
+\end{frame}
+%Discussion about tuesday's question
+
+\begin{frame}[fragile]
+\frametitle{Emily's Solution}
+\scriptsize
+\begin{verbatim}
+from bottle import get, post, request, route, run
+
+@route("/")
+@get("/name") # or @route(’/name’)
+def get_name():
+    return '''
+            <form action="/name" method="post">
+                First Name: <input name="firstname" type="text" />
+                Last Name: <input name="lastname" type="text" />
+                <input value="Name" type="submit" />
+            </form>
+            '''
+@post("/name") # or @route(’/name’, method=’POST’)
+def hello_user():
+    firstname = request.forms.get("firstname")
+    lastname = request.forms.get("lastname")
+    return "Hello", " ", firstname, " ", lastname
+
+run()
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{Exercise-2 from previous class}
+\begin{itemize}
+\item Write a Python program using Bottle, that shows two textfields and a button in the initial screen to take two strings as input
+\item In the program, have a function, that gets called when the user submits this information, which takes these two values, and does the following:
+\begin{enumerate}
+\item checks if the two words are permutations of each other (i.e.,god-dog; spam-maps, program-magropr etc.)
+\item Shows a message:  ”The words are permutations” or ”The words are not permutations” depending on the result of the check.
+\item Note:  Inputs don’t have to be valid words.  Any word stringsare okay, and you can ignore punctuation, spaces, numbers etc.
+\end{enumerate}\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Tim's Solution}
+\tiny
+\begin{verbatim}
+from bottle import get, post, request, route, template, run
+
+def permutation(first, second):
+    if len(first) != len(second):
+        return False
+    else:
+        return ' '.join(sorted(first)) == ' '.join(sorted(second))
+
+@route('/')
+@route('/hello')
+def hello():
+    name = 'Guest'
+    return template('Hello {{name}}', name=name)
+
+@get('/login') # or @route('/login')
+def login():
+    return '''
+        <form action="/login" method="post">
+            First string: <input name="first" type="text" />
+            Second string: <input name="second" type="text" />
+            <input value="Submit" type="submit" />
+        </form>
+    '''
+
+@post('/login') # or @route('/login', method='POST')
+def do_login():
+    first = request.forms.get('first')
+    second = request.forms.get('second')
+    if permutation(first, second) == True:
+        return "The strings are permutations."
+    else:
+        return "The strings are not permutations."
+
+run()
+\end{verbatim}
+\end{frame}
+%.tpl files example
+
+\begin{frame}[fragile]
+\frametitle{"Template" files in bottle}
+\begin{itemize}
+\item files with .tpl extension (you can type in pycharm or notepad and save as somename.tpl)
+\item Why? Avoiding typing of all html in the program itself, and storing it separately. 
+\item Good thing: While most of the html is static, we can actually modify it based on program output
+\item Let me modify Tim's solution and show this.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\scriptsize
+\begin{verbatim}
+from bottle import get, post, request, route, template, run
+
+def permutation(first, second):
+    if len(first) != len(second):
+        return False
+    else:
+        return ' '.join(sorted(first)) == ' '.join(sorted(second))
+
+@get('/')
+def enter():
+    return template('homepage.tpl')
+
+@post('/check')
+def checkpermutations():
+    first = request.forms.get('first')
+    second = request.forms.get('second')
+    areornot = ""
+    if permutation(first, second) == True:
+	areornot = "are"
+    else:
+	areornot = "arenot"
+    return template('resultpage.tpl', string1=first, string2=second, areornot=areornot)
+
+run()
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+Few exercises and discussion
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{What will the following things print?}
+\begin{itemize}
+\item 
+\begin{verbatim}
+lst1 = ["this", "is", "a", "list"]
+print(lst1[10])
+print(lst1[10:])
+\end{verbatim} \pause
+\item 
+\begin{verbatim}
+lst1 = [1,"a","b","cc",11]
+lst1.sort()
+print(lst1)
+\end{verbatim} \pause
+\item Will this work?
+\begin{verbatim}
+a = 1
+b = 2
+a, b = a+1, b+1
+print(a)
+\end{verbatim}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Errors and types}
+\begin{itemize}
+\item What errors do you see here?
+\begin{verbatim}
+dict1 = {"a":1, "b":2, "c":3}
+print(dict1[a])
+print(dict1[3])
+\end{verbatim} \pause
+\item What is a "Syntax Error"?
+\item What is a "Type Error"?
+\item What is a "Zero Division Error"?
+\item What is a "Index Error"?
+\end{itemize}
+Error Hierarchy in Python: \url{https://docs.python.org/3/library/exceptions.html}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{What is happening with this loop?}
+\begin{verbatim}
+list1 = [1,2,3,4,5,6,7]
+for item in list1:
+  del[list1[item]]
+  print(list1)
+\end{verbatim}
+How many times will it run and what will be printed?
+\end{frame}
+
+\begin{frame}
+\frametitle{RegEx exercise: pluralize nouns}
+Write a small program now using regex, which takes a word as input and returns the plural word as output. Here are the rules to code:
+\begin{itemize}
+\item If a word ends in s, x, or z, add es to the end of the word.
+\item If a word ends in a consonant +y, add ies to the word. If a word ends in a vowel+y, add s in the end (vacancy is vacancies but day is days) 
+\item If none of the above cases are valid for a word, just add s at the end of the word and be happy with that. 
+\item Post your solution on the forum for today
+\end{itemize}
+(Your input should not be a number or a string with numbers, punctuation etc. It has to be an alphabetic string.)
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+Mid-term feedback - please fill it up
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Class}
+\begin{itemize}
+\item Topic: Final projects discussion
+\item Todo for you: Think about final projects and get back with your ideas - I will ask all groups to talk about their ideas.
+\item Look at the descriptions uploaded on Canvas
+\item Assignment 5 description
+\end{itemize}
+\end{frame}
+
+\end{document}
+																																																																													

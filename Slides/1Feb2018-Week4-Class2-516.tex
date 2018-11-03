@@ -1,0 +1,283 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{1 Feb 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}%2minutes
+\frametitle{Class outline}
+\begin{itemize}
+\item Program from Tuesday + Questions
+\item Some new stuff about the topics we discussed so far
+\item Practice exercises
+\item Reminder: Assignment 2 due on 3rd! Submit on time!
+\end{itemize}
+\end{frame} %Chapter 5 in the text book
+
+\begin{frame}[fragile]
+\frametitle{Tuesday's programming Exercise}
+\begin{itemize}
+\item Ask the user to enter a number first (integer). Assign it to a variable n.
+\item Now, take input from the user n number of times after this. These have to be numbers.
+\item Once the input taking is done, you have print the following back to the user: sum of the these numbers, and average. 
+\item Example interaction with your program:
+\tiny
+\begin{verbatim}
+> Enter the number of numbers you want to enter: 
+5
+> Enter a number: 2
+> Enter a number: 6
+> Enter a number: 5
+> Enter a number: 3
+> Enter a number: 8
+> The sum of these numbers is: 24
+> The average of these numbers is: 4.8
+\end{verbatim}
+\small \item Assume for now that the user is following your directions, and there are no errors to handle.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Tuesday's problem: Extension}
+Add exception handling to this program, to address the following conditions:
+\begin{itemize}
+\item n is a integer between 2 and 100
+\item Each subsequent number is a integer in the range 0 to 10000
+\item If the user enters a string or floating point or any non-integer for n, print an error message using try and except and stop.
+\item If the user enters anything other than a number after n, detect their mistake using if and else, and print an error message and move on to take next input number.
+\item Note: This is Similar to Final exercise in Chapter 5 in the textbook
+\item Note 2: I am not asking you to organize this program into functions - but think if you can. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{New Solution}
+ExtendLoopQuestion.py
+\end{frame}
+
+\begin{frame}
+\frametitle{Topics covered so far}
+\begin{itemize}
+\item Basic building blocks of Python programming: variables, expressions, operators
+\item Conditional statements
+\item data types, converting between them
+\item Exception handling (try, except)
+\item Writing our own functions
+\item Loops (for, while)
+\item Breaking a loop execution: break and continue statements
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\centering Some new stuff within these topics
+%Main function
+%recursive function
+%Bitwise and, or questions
+%https://www.programiz.com/python-programming#tutorial
+\end{frame}
+
+\begin{frame}
+\frametitle{main() function}
+\begin{itemize}
+\item We can define an optional function with name main() in Python.  
+\item good programming practice
+\item You just name it main - rest is same as other functions. 
+\item We use it primarily to bring a logical structure to your program
+\item This kind of function is mandatory in some other languages, and program execution starts at main() function.
+\end{itemize}
+more info in the second textbook: \url{https://goo.gl/rbhDcd}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{main() function - somewhat advanced stuff}
+\begin{itemize}
+\item Python has a internal variable called \_\_name\_\_, which is automatically set to the string \_\_main\_\_ When we run the program just by itself \pause
+\item It is also possible to "import" one program into another. In such a case, \_\_name\_\_ is set to the name of that program.
+\item Typically, we add this in the program:
+\begin{verbatim}
+if __name__ == "__main__":
+    main()
+\end{verbatim}
+-to tell it to look for the main() function and start running from there, when we execute the program.
+%write from: http://interactivepython.org/courselib/static/thinkcspy/Functions/mainfunction.html
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Factorial program with main() function}
+\scriptsize
+\begin{verbatim}
+def factorial(n):
+   fact = 1
+   for i in range(1,n+1): #why not start at 0?? 
+      fact = fact*i
+   return fact
+
+def main():
+   num = int(input("Enter a number: "))
+   print(factorial(num))
+
+if __name__ == "__main__":
+    main()
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{A recursive program}
+\begin{itemize}
+\item A recursive function is something that calls itself in its definition. 
+\item How can a function call itself? See this example below:
+\item \begin{verbatim}
+def factorial(number):
+    if number == 0 or number == 1:
+        return number
+    else:
+        return number*factorial(number-1) 
+        #What is happening????
+print(factorial(3))
+print(factorial(1))
+print(factorial(2))
+\end{verbatim} \pause
+\item It is a way of programming. For every recursive program, there is always a non-recursive version. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\Large Revision - some code analysis and some coding practice
+\end{frame}
+
+\begin{frame}
+\frametitle{functions vs methods}
+\framesubtitle{For the question about isxxx() methods posted in the forum}
+\begin{itemize}
+\item We use len("python") but "python".isalpha() - what is the difference?
+\item The first one is called a "function", second one is a "method" that works for strings. \pause
+\item simple difference: functions - may work with several kinds of data types (e.g., print() works with integers, strings, floats, lists etc).
+\item methods are tied to specific data objects (i.e., .isalpha() works only for string variables. 
+\pause \item complex difference: There is something called "object oriented programming" - which is beyond the scope of this class.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{comments in python}
+\begin{itemize}
+\item \# are used to write single line comments in your program.
+\item Anything after that symbol will be ignored by python interpreter.
+\item they are for our own use - commenting a program is a good practice both for you, and anyone who wants to use your program.
+\pause \item Multi-line comments start and end with triple quotes (single or double)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exercise: Write a program}
+Write a program that generates 10 random integers between 1 and 1000, and prints the sum of these 10 numbers. What happens if you run again? Do you see the same result? \pause
+\scriptsize
+\begin{verbatim}
+import random
+i = 1
+sum = 0
+while i<=10:
+    randNum = random.randint(1,1000)
+    print(randNum)
+    sum += randNum
+    i = i+1
+print("Sum of all the 10 generated numbers so far is: " + str(sum))
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exercise: Write another program}
+Write a program that prompts the user to keep entering strings. It should stop when the user enters "done" or something and print the lengths of the longest and shortest strings entered so far. \pause \scriptsize
+\begin{verbatim}
+minlength = 9999999999
+maxlength = 0
+try:
+   while True:
+     inputString = input("Enter a string: ")
+     if inputString == "done":
+         print("Min length of strings you entered so far: " + str(minlength))
+         print("Max length of strings you entered so far: " + str(maxlength))
+         break
+     lenString  = len(inputString)
+     if lenString < minlength:
+         minlength = lenString
+     if lenString >= maxlength:
+         maxlength = lenString
+
+except Exception as E:
+    print("Something really unpredictable happened! Here is the description:")
+    print(E)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}%10minutes
+\frametitle{Exercise: Write a program with functions}
+Write a program with the following functions:
+\begin{itemize}
+\item OddEven(integer): This function takes a positive whole number as an argument, and returns a string which is either "Odd" or "Even".
+\item LogNum(integer): Takes a positive whole number and returns the logarithm of this number. 
+\item RandNum(integer): Takes a positive whole number and returns a random number between 0 and this number.
+\item main(): A main function, that prompts a user for a number, and returns the output of all the above functions one by one. 
+\item Make sure your program actually runs!
+\item Note: program should ask for input only once, and give that number as argument to all functions!
+\end{itemize}
+Post your solution on the forum.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Last class' additional exercise}
+\begin{itemize}
+\item Write a program that takes a number and prints multiplication table for that number (n*1 to n*10, one number per line)
+\item Expected input/output:
+\begin{verbatim}
+> Enter a number: 5
+> 5*1 = 5
+  5*2 = 10
+  5*3 = 15
+  .. ... 
+  5*10 = 50
+\end{verbatim}
+- post solution in today's discussion forum. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Is this a familiar feeling now?}
+\includegraphics[width=0.5\textwidth]{programmingcomic.jpg}
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Week}
+\begin{itemize}
+\item Topics: Strings, String manipulations, Regular expressions
+\item Readings:
+\begin{itemize}
+\item For Tuesday: Chapter 6; \url{https://goo.gl/DU4aSQ}
+\item For Thursday: Chapter 11. 
+\end{itemize}
+\item Optional reading: "The Joys (and Woes) of the Craft of Programming" by Frederick P.Brooks \\
+\url{http://home.adelphi.edu/sbloch/class/adages/joy.html}
+\item Optional exercise: Do the two exercises at the end of Chapter 5 in the textbook.
+\item Mandatory: Submit Assignment 2. 
+\end{itemize}
+\end{frame}
+
+
+\end{document}

@@ -1,0 +1,53 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{hyperref}
+
+\begin{document}
+\begin{center}
+  Spring Semester 2018 \\ Iowa State University\\[3ex]
+  {\large ENGL 516 - Formal Methods of Linguistic Analysis}\\[3ex]
+  \textbf{Assignment 4} \\ \textbf{Submission Deadline: 10 MAR 2018}
+\end{center}
+
+
+\paragraph{Instructions:} This assignment consists of two questions. Each question carries 5 marks. Both the questions involve writing python code. Save your code as two .py files (one for each question, as yourname\_question1.py and yourname\_question2.py), and submit it as a zip file on Canvas. If the file does not run and throws errors, you cannot get a grade unless you defend it in the office hours. If I provide a test case for each question, use it as a means to check if your code works. For both the questions, you need to write one paragraph at the end of your program as a multi-line comment, explaining what your program does at each line.
+
+\section*{Question 1}
+The first question involves writing a program that reads the file Ibsen.htm (attached with this assignment) and shows the following output:
+\begin{enumerate}
+\item Number of lines in the html file are: YY
+\item Number of times "Peter Stockman" appears in html file is: ZZ
+\item Number of words (after removing punctuation) in HTML file are: XX
+\item What are the words between $<h3>$ and $</h3>$ tags in this file? Note: The tags can appear as upper case on some computers i.e., H3. Also, what I want is only the text between the H3 tags, not text within the tags themselves i.e., if there is $<H3 id="blah>text inbetween</H3>$, I want only "text inbetween" to be extracted. 
+\item How many times does a Mr. or Mrs. or Dr. Stockman appear in this file compared to any other word followed by Stockman?
+\end{enumerate}
+Note: XX, YY, ZZ - these are placeholders for the actual numbers I should be seeing later.
+
+\section*{Question 2}
+You have to work with a file called Ibsen.txt (attached).
+\begin{enumerate}
+\item What are the 10 most frequent words in Ibsen.txt? Do the necessary pre-processing (removing punctuation, lowercasing etc)
+\item What are the 10 most frequent words in Ibsen.txt, if we discard the words in stopwords.txt file?
+\end{enumerate}
+
+\end{document} 
+
+
+Regular expressions, file-reading/writing
+
+- identifying email addresses?  use file from textbook ask for different patterns
+- reading in a file, and counting occurences of Words. Write code to remove punctuation, and count words which are longer than 10 chars.
+
+Bubble sort is a simple sorting algorithm that repeatedly loops through a list of items to be sorted, compares each pair of adjacent items and swaps them if they are in the wrong order. This process is repeated until there are no more swaps. Write a program that takes as input a list of numbers and produces a sorted list as output. Please do not use any built in functions and use only for or while loops. Note that you are essentially trying to imitate the sort() function of lists.
+
+\medskip
+Test case: 
+\\ Enter a list: [99,88,77,1,2,3,5]
+\\ Sorted list is: [1,2,3,5,77,88,99]
+
+
+Binary search is a simple search algorithm that is used to search through a sorted list of items. The purpose of a search algorithm is to find if an item exists in the collection of items (list for our problem). Here is how it works: compare the target item with the mid-point of the sorted list. If the target item is larger, repeat the same process on the right half of the list. Else, repeat the process on the left half of the list. Do this until you have only one item left. Write a program that implements binary search. Please do not use any built in functions and use only loops. Note that you are essentially trying to imitate the find() function of strings. Hint: You need to sort the list first. Use the sort function you developed in question 1 for this by using a import statement.
+
+\medskip Test case: 
+\\ Enter a list: [99,88,77,1,2,3,5]
+\\ Enter the item you want to search for: 99
+\\ The index of this item in the list is: 7

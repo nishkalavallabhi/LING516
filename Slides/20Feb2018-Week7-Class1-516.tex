@@ -1,0 +1,253 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{20 Feb 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}%2minutes
+\frametitle{Class outline}
+\begin{itemize}
+%\item Announcement: Tutorial date and time
+\item Assignment 3 Discussion
+\item Assignment 4 Description
+\item Lists recap questions
+\item Tips for using lists
+\item Reading and Writing files in Python
+\item Resource for visualizing programs: \url{http://pythontutor.com}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Assignment 3 Discussion}
+\begin{itemize}
+\item Volunteer for discussing Q3 \pause
+\item String method .count() - why it won't work here: "baabaaaaa".count("aa")
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Assignment 4 Description}
+\begin{itemize}
+\item Deadline: 10th March (changed from 3rd March)
+\item 10\% of your grade (last individual assignment)
+\item 2 questions: This covers parts of what you learnt before (regular expressions) and what we will cover in this week
+\item This is actually quite difficult compared to Assignments 1--3. So, start early.
+\item Note: Deadline is 10th March, but I am unavailable (even on email) after 8th.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Lists recap-1}
+\framesubtitle{What will the following print?}
+\begin{verbatim}
+def funct1(lst1):
+   lst1.sort()
+
+def funct2(lst1):
+   lst2 = lst1[:]
+   lst2.sort(reverse=True)
+   return lst2
+
+lst1 = [9,8,7,12,1,2]
+print(funct1(lst1))
+print(lst1)
+print(funct2(lst1))
+print(lst1)
+\end{verbatim}
+\end{frame}
+
+
+\begin{frame}[fragile] %5min
+\frametitle{Lists Recap-2}
+\framesubtitle{let us analyse this code}
+\scriptsize
+\begin{verbatim}
+string = input("Enter a paragraph of text:\n")
+splitString = string.split(" ")
+varN = 5
+result = ""
+for loopvar in range(0,len(splitString)):
+    if loopvar == varN and varN < len(splitString):
+        result = result + " " + "____"
+        varN = varN +5
+    else:
+        result = result + " " + splitString[loopvar]
+#Question: What does result have now?
+print(result)
+\end{verbatim}
+Use a test string: "What is happening here? What is this code doing?"
+\end{frame}
+
+\begin{frame}%7min
+\frametitle{Tips for using Lists - 1}
+\begin{enumerate}
+\item Be aware that some of the list methods manipulate the list and do not return anything lst1.sort() sorts the list lst1 directly..and not save the result as a new list! \pause
+\item There are multiple ways of doing the same thing with minor differences (+ vs append, l1.sort() vs sorted(l1) etc.). Pick one idiom and stick to that to avoid confusion.\pause
+\item Make a copy of the list before you use functions like sort(), to avoid aliasing. \pause
+\item It is easy to fall to write a code that will break easily, especially when we are using regular expressions, split() etc. So, be careful (and patient). Handle possible exceptions, use print statements to do some debugging.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Tips for using lists - 2}
+What is a potential problem with this code?
+\\ (Ignore the first two lines. My question is related to the rest of the code.)
+\scriptsize
+\begin{verbatim}
+fhand = open('mbox-short.txt')
+for line in fhand:
+    words = line.split()
+    if words[0] != 'From': 
+        continue
+    print(words[2])
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{File processing in Python}
+\begin{itemize}
+\item There are three basic operations involved: opening a file, reading its contents, and writing content into a new or existing file.
+\item We will be talking primarily about files with text content in this course.
+\item Why should we know file processing?: Several advantages. We can do corpus analysis easily, for example.
+\item Knowing how to use files along with regular expressions is sufficient to do a lot of text processing even if there are no additional any additional language tools (like parsers, taggers etc).
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Opening a file}
+\begin{itemize}
+\item You open a file with open() function. open("/home/Desktop/a.txt") creates a "handle" for the file if the file really exists on your computer. Otherwise, it throws an error.
+\item Assuming that I have mbox-short.txt, what will happen if I type this?
+\scriptsize
+\begin{verbatim}
+fhand = open('mbox-short.txt') 
+#this looks for the file in your current folder.
+print(fhand)
+\end{verbatim} \pause \normalsize
+\item Assuming that I don't have a file that i am trying to open, what will happen?
+\scriptsize
+\begin{verbatim}
+fhand = open('some_random_name.txt') 
+print(fhand)
+\end{verbatim} \normalsize \pause
+\item One way to avoid such errors is to use try-except loops while trying to read data from files.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reading a file}
+\begin{itemize}
+\item There are two ways to read a file in python. Read line by line (makes more sense for a text file). Read as a whole (useful for text files, and also other formats).
+\item Reading line by line:
+\begin{verbatim}
+fhand = open('mbox-short.txt')
+content = "" 
+for line in fhand:
+  content = content + line
+\end{verbatim}
+\item Reading the whole file at once:
+\begin{verbatim}
+fhand = open('mbox-short.txt') 
+content = fhand.read()
+\end{verbatim}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Checking if a file really exists}
+\begin{itemize}
+\item As mentioned earlier, one way is to use try-except loop and see if there is a "FileNotFound" error when you try to read the file. 
+\item Other way is to use a built in module os and its isfile() function.
+\item example at: CheckFilePath.py 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Searching through a file}
+One example: 
+\begin{verbatim}
+fhand = open('mbox-short.txt')
+for line in fhand:
+    line = line.rstrip()
+    if line.startswith('From:') :
+        print(line)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Searching through a file}
+One more example:
+\begin{verbatim}
+fhand = open('mbox-short.txt')
+for line in fhand:
+    line = line.rstrip()
+    if line.find('@uct.ac.za') == -1 : 
+        continue
+    print(line)
+\end{verbatim}
+\pause This will print only lines that have that string "@uct.ac.za".
+\end{frame}
+
+\begin{frame}
+\frametitle{More examples of searching}
+.. in regular expressions chapter, lot of practice while doing Assignment 4. 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Writing into a file}
+\begin{itemize}
+\item You still have to "open" a file, but add an extra parameter called "w"
+\\ writeHandle = open('output.txt', 'w')
+\item You then use the write() method of this handle to write content into the file.
+\begin{verbatim}
+writeHandle.write("this is a line\n")
+\end{verbatim}
+\item The handle will not do a "enter" keypress. So, you need to put your own newlines.
+\item Once you are done, close the handle. \\ writeHandle.close()
+\item Caution: If the file already exists, doing this will delete the old data! so be careful! If the file doesn’t exist, a new one is created.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Getting a list of all files in the directory}
+\begin{itemize}
+\item Sometimes, we want to work with a bunch of files instead of a single file. 
+\item It is useful to have a way to list all files (or just .txt files or .py files etc.).
+\item ...and later we can loop through the directory, process one file after another iteratively.
+\item Go to: ListFilesInDir.py
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Time for a small exercise}
+Try to write a small code to read a file given by the user, and give: a pdf file as input, and see what happens. Give it one of your .py files as input and see what happens.
+\end{frame}
+
+\begin{frame}
+\frametitle{Post solution on the forum}
+Try to write a small code that will take a folder/directory path, and lists the number of lines of all files in that directory (if it can actually read it!).
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Class}
+\begin{itemize}
+\item Two useful data structures in Python: Dictionaries and Tuples (chapters: 9--10)
+\item Next Tuesday: Recap, Practice. So, post any questions you have online in the forum with "Recap: 27 Feb" as the title.
+\end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,28 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{url}
+\title{Practice exercises for concepts from Chapter 6 of the textbook}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item Write a program thats takes a string (of any length) without any numbers, and splits it into words based on whitespaces, and for each word:
+\begin{itemize}
+\item if it contains a "s" but not "t" (the function is boolean - returns true or false)
+\item if any character is repeated consecutively in the word (For example, for a word "Boss", your output should read like: "yes, s is repeated twice" or something.
+\end{itemize}
+
+\item Write a program to take as input a integer value, convert to string and print it digit by digit. Comment important lines in the code 
+so that others who read it can understand what you are doing.
+
+\item (From ling.gu.se) The third person singular verb form in English is distinguished by the suffix -s, which is added to the stem of the infinitive form: run $->$ runs. A simple set of rules can be given as follows:
+\begin{enumerate}
+\item If the verb ends in y, remove it and add ies
+\item If the verb ends in o, ch, s, sh, x or z, add es
+\item By default just add s
+\end{enumerate}
+Your task in this exercise is to define a function make\_3sg\_form() which given a verb in infinitive form returns its third person singular form. Test your function with words like try, brush, run and fix. Note however that the rules must be regarded as heuristic, in the sense that you must not expect them to work for all cases. Tip: Check out the string method endswith().
+
+\end{enumerate}
+\end{document}
+
+

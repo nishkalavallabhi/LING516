@@ -1,0 +1,64 @@
+\documentclass[10pt,a4paper]{article}
+\title{Practice exercises for the concepts from Chapter 2 and Chapter 3 in the textbook.}
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item Write a program that takes two numbers as inputs and returns the largest of them. Use the if-then-else construct available in Python. (Python has a built-in function called max() for this, but implement on your own for practice). Example input/output
+\begin{itemize}
+\item Example 1: 
+\\ Enter a number: 25.0
+\\ Enter another number: 34
+\\ 34 is the largest.
+\item Example 2:
+\\ Enter a number: 19
+\\ Enter a number: a
+\\ Please enter valid numbers.
+\end{itemize}
+
+\item Write a program which takes three strings and prints the string that comes first in dictionary order.
+\begin{itemize}
+\item Example 1: 
+\\ Enter a string: "sam"
+\\ Enter second string: "ams"
+\\ Enter third string: "mas
+\\ Your strings in dictionary order: ams, mas and sam.
+\item Try with various string combinations - strings with digits, with capital and small letters, with punctuation markers etc., Check if your program works and note your observations.
+\end{itemize}
+
+\item Write a program that takes a character (i.e. a string of length 1) and prints you if it is a vowel or a consonant.
+\begin{itemize}
+\item Example 1:
+\\ Enter a character: "a"
+\\ You entered a vowel.
+\item Example 2:
+\\ Enter a character: "ab"
+\\ You should enter only one character. (hint: len(string) gives you the number of characters in a string)
+\item Example 3:
+\\ Enter a character: "m"
+\\ You entered a consonant.
+\end{itemize}
+\item Write a program that does the following: First, ask the user to enter a number. Check if the number is even. If the number is even, check if it is divisible by 4 and 8 and print your results. If the number is odd, check if the number is divisible by 3 and 5. Print the results.
+\begin{itemize}
+\item Example 1:
+\\ Enter a number: 21
+\\ The number is an odd number.
+\\ The number is divisible by 3 (hint: 21\%3==0 implies the number is divisible by 3)
+\\ The number is not divisible by 5
+\item Example 2: 
+\\ Enter a number: 16
+\\ The number is an even number
+\\ The number is divisible by 4
+\\ The number is divisible by 8
+\end{itemize}
+\end{enumerate}
+\end{document}
+
+%\item Write a program to return in "-ing" form of a verb. Follow this simple set of heuristic rules to write the program:
+\begin{enumerate}
+    If the verb ends in e, drop the e and add ing (if not exception: be, see, flee, knee, etc.)
+    If the verb ends in ie, change ie to y and add ing
+    For words consisting of consonant-vowel-consonant, double the final letter before adding ing
+    By default just add ing
+
+Your task in this exercise is to define a function make_ing_form() which given a verb in infinitive form returns its present participle form. Test your function with words such as lie, see, move and hug. However, you must not expect such simple rules to work for all cases.
+

@@ -1,0 +1,95 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{url}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{22 March 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline for today's class}
+\begin{itemize}
+\item studying code with database + UI
+\item Reminder: Submit Assignment 5 on time. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}%5min
+\frametitle{Review of Tuesday's Class}
+\begin{enumerate}
+\item I am assuming you went through those code examples \pause
+\item If I now ask give a table description, and ask you to write python code to create such a table, what operation should you perform? \pause
+\item How will you write a query to choose all rows in a table, where the Column "role" has the value "faculty"? \pause
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\centering
+\Large Let us take a look at the three code files from Tuesday (Install: sqlite browser (http://sqlitebrowser.org/).
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\centering
+\Large Okay, now, be brave.
+\end{frame}
+
+\begin{frame}
+\frametitle{How do you teach someone to swim?}
+\begin{itemize}
+\item Let us say my answer is: "I will just push this person into water. They will learn to swim." - what would be your reaction?
+\pause \item It is a somewhat extreme form of teaching, dangerous too in this case. 
+\pause \item Now, am going to follow this kind of approach (and it is not physically dangerous).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is it?}
+\begin{itemize}
+\item Some time back, I did a web-based reading study, where participants came, logged into the application, and read some texts and answered questions about it.
+\item The entire setup was coded in Python, with Bottle, and with Sqlite3 module.
+\item Code was written by Stefanie Fuccio, a student in my 516 in Spring 2016. \pause
+\item Stephanie started working on this immediately after 516 (she had no prior background), and while taking 520.
+\item I guess it took around 3 months for her to make it work, do some testing and stuff (For experienced folks, it takes perhaps 3-4 weeks max). 
+\item Let me show you how it works.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Your task -1}
+\begin{itemize}
+\item The code, and the sqlite file are all in a zip file with today's date on Canvas.
+\item Form into groups of two or three people, look at one of: 2\_createlogins.py and 3\_createtexttable.py (people on left, take 2\_, on right, take 3\_, middle - up to you)
+\item You have 20 minutes. After that, I will "randomly" pick people to come and explain these two programs. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Week}
+\begin{itemize}
+\item Assignment 6 introduction, Database-UI discussion continuation
+\item Working with external python modules, other people's code etc. 
+\item ToDo: Understand what is happening in this code, relative to how it is progressing on the web application. 
+\item Usernames and passwords you need can be accessed from the logins table using sqlite browser.
+\end{itemize}
+\end{frame}
+
+
+
+\end{document}
+
+%in third class, UI + Databases combo examples.

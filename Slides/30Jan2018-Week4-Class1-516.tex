@@ -1,0 +1,351 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{30 January 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}%2minutes
+\frametitle{Class outline}
+\begin{itemize}
+\item Week 3 Recap
+\item Loops in Python
+\item Loops: Practise exercise
+\end{itemize}
+\end{frame}
+
+\begin{frame}%3-4minutes
+\frametitle{}
+\centering Week 3 Recap
+\end{frame}
+
+\begin{frame}%3-4minutes
+\frametitle{Topics discussed}
+\begin{itemize}
+\item Boolean and logical expressions
+\item Conditional statements
+\item Exceptions and handling them
+\item Writing your own functions
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Recap questions}
+\begin{itemize}
+\item What is the difference between try/Except and if/else? \pause
+\item If I ask you to write a program that randomly prints numbers between 1 to 100, how will you approach it? \pause
+\item Why do you think we need to write functions? \pause
+\item What does a return statement do? Why do we need it? \pause
+\item What is the difference between a return statement and a print statement?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminology} %10 min
+\begin{itemize}
+\item Function definition: The process of defining/creating a function
+\item Function parameters: variables inside the function definition, that can be used as input variables. 
+\item Function call: The process of calling a function that was defined before.
+\item Function arguments: The variables or values that we pass as input to a function.
+\item Function object: The "data type" of a function call. 
+\item Return value: Value returned by the function.
+\item Void function: A function that does not return anything. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Terminology: Examples}
+\begin{enumerate}
+\item Consider the following: 
+ \begin{verbatim}
+def example_print_function(some_string):
+   print(some_string)
+  \end{verbatim}
+This is a function definition. some\_string is a parameter. This function does not return anything. So, it is a void function. 
+\pause
+\item Consider this statement: maximum = max(1,2,3,4,5) \\
+This is a function call. 1,2,3,4,5 are the arguments. max(1,2,3,4,5) is a function object. maximum is the return value.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Some rules for using functions in your code}
+\begin{itemize}
+\item A function needs to be always first defined, before being called.
+\item A function definition starts with a def keyword. 
+\item A function need not necessary have a return statement, but where you can use return instead of print, use it.
+\item Indentation and syntax needs to be strictly followed even with functions.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution to last class' exercise}
+Question: Expand the ctof, ftoc functions program to add the following conditions
+\begin{itemize}
+\item If the user chooses C and then enters a temparature beyond the range: [-58, +58] Celsius, print a message asking them to enter something realistic and stop. Else, do the conversion.
+\item If the user chooses F and then enters a temparature beyond the range: [-130, +130] Fahrenheit, print a message asking them to enter something realistic and stop. Else, do the conversion.
+\end{itemize}
+Solution: ThursdayHW.py in Module:Week4 on Canvas
+\end{frame}
+
+\begin{frame}%10min
+\frametitle{}
+\centering Loops in Python
+\end{frame}
+
+\begin{frame}%10min
+\frametitle{Iterations and loops: What and Why?}
+\begin{itemize}
+\item What is a loop? \pause
+\item What is iteration? \pause 
+\item Where are these concepts useful? \pause 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{An example loop flowchart}
+\includegraphics[width=0.6\textwidth]{Loops-Eg1.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{A flowchart with a loop in a loop}
+\includegraphics[width=0.5\textwidth]{Loops-Eg2.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{A flowchart with an infinite loop}
+\includegraphics[width=0.6\textwidth]{Loops-Eg3.png}
+\end{frame}
+
+\begin{frame}[fragile]%3-4minutes
+\frametitle{Loops in Python: a "while" Loop}
+\begin{verbatim}
+i=0
+while i<3:
+    print(i)
+    i = i+1
+print("Done with the while loop!")
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]%3-4minutes
+\frametitle{Loops in Python: a "for" Loop}
+\begin{verbatim}
+i=0
+for i in range(0,3):
+    print(i)
+    i=i+1
+print("Done with the for loop!")
+\end{verbatim}
+(There is also another way of looping using a "for". We will get to that next week.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example Program with While loop}
+\begin{verbatim}
+def someFunction(number):
+    result = 1
+    i = 1
+    while i<=number:
+        result = result*i
+        i = i+1
+    return result
+print(someFunction(5)) 
+\end{verbatim} 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Same program with For loop}
+\begin{verbatim}
+def someFunction(number):
+    result = 1
+    for i in range(1,number+1):
+        result = result*i
+    return result
+print(someFunction(5)) 
+\end{verbatim} 
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Infinite Loops}
+\begin{itemize}
+\item Example 1:
+\begin{verbatim}
+tempstring = "whatever"
+while tempstring == "whatever":
+    print(tempstring)
+print("You will never see this message")
+\end{verbatim}
+
+\item Example 2:
+\begin{verbatim}
+while True:
+   print("I won't stop!")
+print("You will never see this message")
+\end{verbatim}
+\end{itemize} 
+\bigskip - these kind of loops will never stop until you apply force (on your keyboard, that is).
+\end{frame}
+
+%Break statement.
+\begin{frame}[fragile]%3-4minutes
+\frametitle{Even such patterns can be put to use!}
+\framesubtitle{break statement in Python}
+Suppose you want to keep taking input from the user until the user enters "done"
+\begin{verbatim}
+while True:
+    line = input('Enter something: ')
+    if line == 'done':
+        print("Stopping here")
+        break #break statement breaks the loop.
+    else:
+        print(line)
+print('Done!')
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{continue statement in python}
+Break lets you out of the loop completely. continue just comes out of current iteration and goes to the next iteration of the loop.
+\small \begin{verbatim}
+while True:
+    line = input("Enter something: ")
+    if line == 'pass':
+       print("I am passing without printing what you entered")
+       continue 
+    elif line == 'done':
+       print("I am stopping the program.")
+       break
+    else:
+       print(line)
+print("Done!")
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{Choosing between a for and while}
+\begin{itemize}
+\item Use a for loop if you know, before you start looping, the maximum number of times that you?ll need to execute the body. 
+\item  if you are required to repeat some computation until some condition is met, and you cannot calculate in advance when (of if) this will happen, use while.
+\item Anything implemented in for, can have a while counterpart and vice versa.
+\item My preference: for over while (because we wont get into infinite loops by mistake)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exercise: Spot the bug}
+\begin{verbatim}
+def someFunction(number):
+    result = 1
+    i = 1
+    while i<=number:
+        result = result*i
+        number = number+1
+    return result
+print(someFunction(5)) 
+\end{verbatim} 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Exercise: analyze this}
+\begin{verbatim}
+def seq3np1(n):
+    while n != 1:
+        print(n, end=", ")
+        if n % 2 == 0:        # n is even
+            n = n // 2
+        else:                 # n is odd
+            n = n * 3 + 1
+    print(n, end=".\n")
+\end{verbatim}
+What will seq3np1(16) print? \pause
+16, 8, 4, 2, 1
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Programming Exercise}
+\begin{itemize}
+\item Ask the user to enter a number first (integer). Assign it to a variable n.
+\item Now, take input from the user n number of times after this. These have to be numbers.
+\item Once the input taking is done, you have print the following back to the user: sum of the these numbers, and average. 
+\item Example interaction with your program:
+\tiny
+\begin{verbatim}
+> Enter the number of numbers you want to enter: 
+5
+> Enter a number: 2
+> Enter a number: 6
+> Enter a number: 5
+> Enter a number: 3
+> Enter a number: 8
+> The sum of these numbers is: 24
+> The average of these numbers is: 4.8
+\end{verbatim}
+\small \item Assume for now that the user is following your directions, and there are no errors to handle.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\centering Solution Discussion
+\\ \tiny (Solution is uploaded after the class as: LoopQuestion.py)
+\end{frame}
+
+\begin{frame}
+\frametitle{Extending this program}
+Add exception handling to this program, to address the following conditions:
+\begin{itemize}
+\item n is a integer between 2 and 100
+\item Each subsequent number is a integer in the range 0 to 10000
+\item If the user enters a string or floating point or any non-integer for n, print an error message using try and except and stop.
+\item If the user enters anything other than a number after n, detect their mistake using if and else, and print an error message and move on to take next input number.
+\item Note: This is Similar to Final exercise in Chapter 5 in the textbook
+\item Note 2: I am not asking you to organize this program into functions - but think if you can. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Additional Exercise for fast programmers}
+\begin{itemize}
+\item Write a program that takes a number and prints multiplication table for that number (n*1 to n*10, one number per line)
+\item Expected input/output:
+\begin{verbatim}
+> Enter a number: 5
+> 5*1 = 5
+  5*2 = 10
+  5*3 = 15
+  .. ... 
+  5*10 = 50
+\end{verbatim}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Class}
+\begin{itemize}
+\item Topics: Revision of what we learnt so far
+\item writing a main() function - good programming practices
+\item ToDo: In the forum post for Revision topics - post the topics you want me to discuss on Thursday. I will accomodate as many requests as possible. 
+\item There will also be in-class programming exercises as usual on thursday. 
+\item If you want little bit more challenging stuff, look at Chapter 7 in the second textbook: \url{http://openbookproject.net/thinkcs/python/english3e/iteration.html}
+\end{itemize}
+\end{frame}
+
+\end{document}
+
+

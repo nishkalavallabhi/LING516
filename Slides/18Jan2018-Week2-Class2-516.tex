@@ -1,0 +1,280 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{18 Jan 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+%Basics: declaring variables, performing arithmetic operations 
+% \\ Readings: Chapter 2 in the textbook
+
+\begin{frame}
+\frametitle{Class outline}
+\begin{itemize}
+\item Algorithms and Flowcharts: Discussion %35min - in class quiz
+\item Python - review of last class
+\item Logical operations 
+\item Useful python functions %print, int(), str(), type, input() etc
+\item Writing your first python program %5min
+\item Practice exercises%15min -can have small quizzes here.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Algorithms: A small quiz} %10 min
+\framesubtitle{Write an Algorithm/flowchart for this description}
+There are 10 Mangoes. Of which 5 are ripe. 4 are raw. One is spoilt. Ripe mangoes have a yellow or reddish yellow color and are soft to touch. Raw mangoes are green in color and hard to touch. Spoilt mango is too soft to touch and is brownish yellow in color. Now, write an algorithm that looks at a mango, and decides whether it is raw or ripe or spoilt. 
+\end{frame}
+
+\begin{frame}
+\frametitle{Algorithms: A small quiz} %10min
+Write a flowchart/algorithm to calculate the factorial of a number N. (Factorial of 5 is represented by 5! and is calculated as: 5*4*3*2*1 = 120. Factorial of 6 is 6*5*4*3*2*1 or 6*5!. That is 720.)
+\end{frame}
+
+\begin{frame}
+\frametitle{From the last class}
+\begin{itemize}
+\item Different mathematical operations and symbols in Python
+\item Different ways of assigning and re-assigning values to variables
+\item Some errors we may see if we make mistakes
+\end{itemize}
+- so far, we worked with the Python console. What we wrote goes away if we close PyCharm. We need to save what we wrote as python program files (.py) to reuse these.
+\end{frame}
+
+\begin{frame}
+\frametitle{Python Console vs Python program}
+\begin{itemize}
+\item Python console: interactive, instant result
+\item Python program: You should "run" or execute the program to see your results.
+\item Console: You write x=3, and write x in next line, 3 gets printed in the other line
+\item Program: You have to write print(x)
+\item Program: You can save it and reuse it again and again
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Your First Python Program}
+\begin{enumerate}
+\item Go to PyCharm. In File Menu, choose "New Project" and name it Week2. 
+\\ (A project in this context is a collection of programs you write).
+\item In this new project Week2, Rightclick and choose New-$>$Python File. Name your file: MyFirstProgram or something.
+\item Go to MyFirstProgram.py and type: print('Hello World!')
+\item In the next line, type: print("This is my first Python program")
+\item Click on the green pennant/triangle to run/execute your program.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{A cool quote about programmers}
+\textit{"The ideal programmer would have the vision of Isaac Newton, the intellect of Albert Einstein, the creativity of Miles Davis, the aesthetic sense of Maya Lin, the wisdom of Benjamin Franklin, the literary talent of William Shakespeare,
+the oratorical skills of Martin Luther King, the audacity of John Roebling, and the self-confidence of Grace Hopper"}
+\medskip (Source: Introduction to Computing: Explorations in Language, Logic and Machines, By David Evans, Page 35.)
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Python Basics}
+Write a program basics.py with the following lines.
+\begin{verbatim}
+print(4)
+print(4*7)
+print("hello " * 4)
+print("hello" * 4)
+x = 3
+print(x)
+print(x*4)
+y = x
+print(y)
+name = input('Enter your name: ')
+print ('Hello', name)
+\end{verbatim}
+-Does it run? If it does not run, make it run. What do you see?  It ran completely if you saw the message: "Process finished with exit code 0"
+\end{frame}
+
+\begin{frame}
+\frametitle{Python Basics - Continued}
+\framesubtitle{To err is human. To not forgive is computerish.}
+Go back to interactive/console mode now, and do these:
+\begin{enumerate}
+\item What happens when you type: 
+\begin{itemize}
+\item print("name)
+\item print("name')
+\item print("John's pen")
+\item print('John's pen')
+\item print('name')
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Python Basics - Continued}
+\framesubtitle{To err is human. To not forgive is computerish.}
+On console, what happens when you type: 
+\begin{itemize}
+\item x = "hello"
+\item print(x+5)
+\pause \item Why?
+\end{itemize} \pause
+What happens when you type:
+\begin{itemize}
+\item print(3)
+\item print(1,000,000)
+\pause \item Did python give you what you expected in both cases? Why? Why not?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Type of variable: type() function}
+\begin{itemize}
+\item type() function is useful when we don't know what is the type of data stored in a variable.
+\item type(3) returns a integer.
+\item type("3") returns a string
+\item type(3.9) returns a float
+\item type([1,2,3]) returns a list
+\item type(print) returns "builtin function or method" 
+\end{itemize}
+... and so on.
+\end{frame}
+
+\begin{frame}
+\frametitle{print(1,000,000)}
+\centering
+How do you think Python sees this?
+\end{frame}
+
+\begin{frame}
+\frametitle{Asking the user for input}
+\begin{itemize}
+\item input() is a built-in function in Python to seek input from user. (we will soon write our own functions)
+\item type: input() on your console. Press enter. What happened? \pause
+\item If you now type something on the console, and press enter, what happens? \pause
+\item i = input("Enter a number: ") - type this on the console and see what happens. \pause
+\item if you now type i and press enter, what does it print?
+\item Is that what you would expected to see?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Conversion between different types}
+\begin{itemize}
+\item If we ask the user to enter a number, and it is read by default as string, what should we do? 
+\item Python has some built in functions to convert between data types.
+\item int() converts whatever you give it into a integer if possible, otherwise, it throws an error.
+\item Type int("3"), int("3.4"), int("a") on your console -which of these runs without error? \pause
+\item similar functions: float(), str()
+\end{itemize}
+\end{frame}
+%type conversion
+%int(), float(), str()
+
+%Slides on debugging
+\begin{frame}
+\frametitle{Yesterday, you said syntax errors are easy to fix}
+But if it just says: "invalid syntax" without details, may be that is difficult. 
+\begin{itemize}
+\item 76trombones = 'big parade'
+\item more@ = 1000000
+\item class = 'Advanced Theoretical Zymurgy'
+\end{itemize}
+-Why are these errors?
+ \pause
+\\ Type 17/0 on console - what error do you see?
+\end{frame}
+
+\begin{frame}
+\frametitle{Operators in Python}
+\begin{itemize}
+\item Operators are those symbols between variables that allow you to perform some "operations".
+\item mathematical operators are: +, -, /, *, \% etc.
+\item Python also has logical operators: and, or, not
+\item comparisons: $==$, $<$, $,>$, $<=$, $>=$ (there are few more - more on those later)
+\item When a line of code has more than one operator, rules of precedence exist to decide what operation should be performed first.
+\item e.g., 5-3*2 - what is the output of this? \pause
+\item e.g., (5-3)*2 - what is the output?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Rules of precedence}
+\begin{itemize}
+\item parenthesis come first - anything within parentheses gets executed first. 
+\item Exponents come next 2**1+1 is 3, not 4, and 3*1**3 is 3, not 27.
+\item Multiplication and division have the same level of precedence
+\item Finally, addition and subtraction have same precedence.
+\item When you have two operators of same precedence, execution is left to write. 5-3+2 is 4. 
+\end{itemize}
+general advice: use parentheses, to avoid confusion.
+\end{frame}
+
+\begin{frame}
+\frametitle{Python Basics: Practice}
+Switch back to Python Project mode and create a new code file called SecondProgram and write a code that does these things:
+\begin{itemize}
+\item Prompt the user to enter their name.
+\item Prompt the user to enter their country.
+\item Write a print statement which says:  Hello [Name] from [Country]. Welcome to Ames.
+\item Run your program, and test with the following values:
+\begin{enumerate}
+\item Name = Bond, Country = UK
+\item Name = 3, Country = Poland
+\end{enumerate}
+\item Add a line in your program that accepts a phone number (10 digits, without space, any signs) from the user, and prints out the number. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Python Basics: More Practice}
+\framesubtitle{source: \url{https://goo.gl/yPVqDn}}
+The formula for compound interest calculation is given as:
+$A = P * (1 + \frac{r}{n})^(n*t)$
+Where: \\
+P = principal (initial investment)
+r = annual nominal interest rate
+n = number of times interest is compounded per year
+t = number of years. 
+- Write a program which has initial values as: P=12000, n=12, r=8\%. Then, the program should ask the user for t i.e., number of years, and print the final amount after t years. 
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Class}
+\begin{enumerate}
+\item Topics: Conditional statements
+\item ToDo before the class
+\begin{enumerate}
+\item Readings: Chapter 3 in the textbook
+\item Submit Assignment 1
+\end{enumerate}
+\item Post your program on the discussion forum for today if you want to discuss differences between your programs. 
+\item Try to do exercises at the end of Chapter 2
+\end{enumerate}
+\end{frame}
+
+\end{document}
+
+
+\begin{frame}
+\frametitle{Sorting Quiz - 1} %15min
+\begin{itemize}
+\item Sketch an algorithm or flowchart to sort a bunch of names alphabetically. Let us say I give a list of names: \{Anis, Ajay, Alice, Alina, Ben, Sam, Sowmya, Jordan, Joe\} your approach should give me: \{Ajay, Alice, Alina, Anis, Ben, Joe, Jordan, Sam, Sowmya\}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Sorting Quiz - 2}
+\framesubtitle{the last one}
+Now, write an algorithm/flowchart to sort a bunch of numbers from lowest to highest. {5,4,7,2,3,1} should give me {1,2,3,4,5,7}.
+\end{frame}
+

@@ -1,0 +1,214 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{savesym}
+\savesymbol{checkmark}
+\usepackage{dingbat}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{8 March 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}%2minutes
+\frametitle{Class outline}
+\begin{itemize}
+\item Assignment 5 description
+\item Tuesday's last question
+\item Final project ideas and discussion
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Notes from Midterm feedback-1}
+Delta for me
+\begin{itemize}
+\item More time to practice step by step (\leftthumbsup)
+\item More explanations needed, more repetitions needed (\leftthumbsup)
+\item Clearer instructions about Assignments (\leftthumbsup)
+\item More real life examples (\leftthumbsup)
+\item Assignments don't coincide with what is taught in class (Really?)
+\item Group work from beginning
+\item Exercise time spread out in the class, not in the end.
+\item Let us choose groups 
+\item Flipped classroom
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Notes from Midterm feedback-2}
+Delta for you
+\begin{itemize}
+\item Practice more outside class
+\item Work on the program a little bit before searching internet for help
+\item Office hours
+\item Participate more in the forum
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Discussion on Tuesday's last question}
+Write a small program now using regex, which takes a word as input and returns the plural word as output. Here are the rules to code:
+\begin{itemize}
+\item If a word ends in s, x, or z, add es to the end of the word.
+\item If a word ends in a consonant +y, add ies to the word (removing y). If a word ends in a vowel+y, add s in the end (vacancy is vacancies but day is days) 
+\item If none of the above cases are valid for a word, just add s at the end of the word and be happy with that. 
+\end{itemize}
+(Your input should not be a number or a string with numbers, punctuation etc. It has to be an alphabetic string.)
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+Your solutions - Discussion
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Taichi's solution}
+\footnotesize
+\begin{verbatim}
+import re
+
+word = input('Enter a word in its singular form: ')
+plural = ""
+
+if re.match("\w+(s|x|z)",word):
+    plural = word + "es"
+elif re.match("\w+(a|e|i|o|u)y", word):
+    plural = word + "s"
+elif re.match("\w+y", word):
+    word_list = list(word)
+    word_list[-1] = "i"
+    word = "".join(word_list)
+    plural = word + "es"
+else:
+    plural = word + "s"
+
+print(plural)
+\end{verbatim}
+- What do you think this prints, if I give "boxy" as input? (expected output: boxies)
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Emily's solution}
+\scriptsize
+\begin{verbatim}
+import re
+try:
+    user_input = str(input("Please enter a word to make it plural: "))
+    if user_input.isalpha():
+        if re.search("[sxz]$", user_input):
+            plural = user_input + "es"
+            print(plural)
+        elif re.search("[qwrtpsdfghjklzxcvbnm]y$", user_input):
+            user_input.split()
+            plural = user_input[0:-1] + "ies"
+            print(plural)
+        else:
+            print(user_input + "s")
+    else:
+        print("Please enter a string.")
+except:
+    print("There was an error.")
+\end{verbatim}
+(My addition: in your elif, you can put "[\^{}aeiou]" instead. I don't understand the split() call though. 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Fatemeh's solution}
+\tiny
+\begin{verbatim}
+import re
+while True:
+    try:
+            word= str(input("please enter a word: "))
+            if  word.isalpha():
+                if re.search("\w+(s|x|z)", word):
+                 word = word+"es"
+                elif re.search("\w+(b|c|d|f|g|h|j|k|l|m|n|p|q|r|t|s|v|w|x|y|z)y", word):
+                    word = word[0:-1] + "ies"
+                elif re.search("\w+(a|e|o|u|i)y", word):
+                    word = word + "s"
+                else:
+                     word = word +"s"
+                print (word)
+            else:
+                print("the input is not valid")
+    except:
+        print( "please enter a word: ")
+        continue
+\end{verbatim} \small
+Comments: Same issue as Taichi's. In Regular expression, you can use square brackets, and \^{} symbol for elegance in code. But, does this code ever stop?
+\end{frame}
+
+\begin{frame}
+\frametitle{Assignment and Project Groups}
+(I am just putting official first names here)
+\begin{itemize}
+\item Group 1: Fatemeh, Nazlinur, Agustinus
+\item Group 2: Sondoss, Yasin, Taichi
+\item Group 3: William, Haeyun, Timothy
+\item Group 4: Afnan, Kristin
+\item Group 5: Brody, Emily
+\end{itemize}
+\footnotesize Note: Contrary to what some of you thought, I actually did think about whom to put together. I wanted to put people with varying skill levels together (from my perspective), except for Group 5 (as they are the only two undergrads in the class).
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Assignment 5 description}
+\begin{itemize}
+\item Deadline: March 24th
+\item Questions: 3 questions, Answer any 2. (I would strongly recommend not skipping Question 1)
+\item Submission: One submission per group! 
+\item Question 1: Using terminal in MacOS/Linux/Windows 10+ 
+\item Question 2: Implementing a sorting function yourself
+\item Question 3: Implementing a searching function yourself (This is more difficult than the other two)
+\item You can do all 3 and get bonus credit of 2\% in the final grade, if you want. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}%CHANGE
+\frametitle{Final Project: how is the grade split?}
+\begin{itemize}
+\item 30\% of your total grade
+\item 10\% for a short oral presentation in the finals week.
+\item 20\% for the code and a report, due on May 1st. (5\% for user interface, 10\% for other part of the code, 5\% for the report). 
+\item Some project ideas on Canvas
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Discussion Time}
+\begin{itemize}
+\item Time for your ideas! (discuss with your team)
+\item I will ask all teams to present their ideas in a few min. 
+\item You should also post your idea (just a small paragraph) on the discussion forum (one post per team)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Week after break}
+\begin{itemize}
+\item Working with databases
+\item databases + bottle
+\item Assignment 5 will be due at the end of that week.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\Large Happy Spring break!!
+\end{frame}
+
+\end{document}

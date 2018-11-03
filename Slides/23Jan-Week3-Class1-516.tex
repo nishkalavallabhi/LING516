@@ -1,0 +1,388 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{23 Jan 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Class outline}
+\begin{itemize}
+\item Week 2 Recap %15min
+\item Assignment 1 Discussion %5min
+\item Assignment 2 Description %5min
+\item Logical Expressions %10min
+\item Conditional Statements %20min
+\item Writing programs with conditional statements %20min
+\end{itemize}
+Ref: Chapter 3 in the textbook
+\end{frame} 
+
+%Inform that Assignments are uploaded, A1 solution discussion - 10 min
+%Discuss solutions for last week questions - 10 min
+%Do a quick recap - 10 min
+%Conditionals - 20 min
+%Practice: 30 min
+\begin{frame}
+\frametitle{}
+\begin{center}
+Recap
+\end{center}
+\end{frame}
+
+\begin{frame}%5min
+\frametitle{Recap: type of a variable}
+What is the type of the following variables?
+\begin{enumerate}
+\item var1 = "python"
+\item var2 = 3.2
+\item var3 = 9
+\item var4 = 9.0
+\item var5 = '3.2'
+\item var6 = True
+\item var7 = 'b3'
+\item var8 = true
+\end{enumerate}
+\pause What built-in function is useful to know the type of a varialble?
+\end{frame}
+
+\begin{frame}%5min
+\frametitle{Recap: input()}
+Let us take this line: \\ 
+i = input("Enter a number: ")
+\\ How do you make sure this variable i is a number and not a string?
+\end{frame}
+
+\begin{frame}
+\frametitle{Recap: Operator Precedence}
+Evaluate the following expressions:
+\begin{enumerate}
+\item (3*5)+2-3+(2*4) \pause
+\\ The answer is: 22
+\item 1+3**2*4-6 \pause
+\\ The answer is 31.
+\item 2*5/6*4+1-3
+\\ The answer is 4.66666....
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Recap: Programs from last class - 1}
+\begin{itemize}
+\item Description: Program prompts for username, and country, and prints a message.
+\item One solution posted on discussion forum:
+\scriptsize
+\begin{verbatim}
+name=input("What is your name?")
+country=input("What country are you from?") + "."
+print("Hello ", name, "from", country, "Welcome to Ames.")
+phone=input("Please enter your 10-digit phone number with no spaces or other characters.")
+print(phone)
+\end{verbatim}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Questions raised in the forum}
+\begin{itemize}
+\item How to make sure it is a valid phone number? - you will need more experience before being able to do that. May be 3-4 more weeks?
+\item Tim used len(x) to check if it is 10 characters long. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Recap: Programs from last class - 2}
+\begin{itemize}
+\item Description: Compound interest calculation
+\item One solution posted on discussion forum: \scriptsize
+\begin{verbatim}
+P=12000
+n=12
+r=.08
+t=input("What is the number of years?")
+t=int(t)
+A=P*((1+(r/n))**(n*t))
+print(A)
+\end{verbatim}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+Assignment 1 Discussion
+\end{center}
+\end{frame}
+
+\begin{frame}%5min
+\frametitle{Assignment 1 - Key (1)}
+\begin{itemize}
+\item print("I am a graduate student in ISU. \textbackslash n I am learning to program in Python") \pause
+\item String1+String2 gives "IowaAmes"; String1*Num2 prints string1 num2 times. Remaining two cases fail. \pause
+\item max(), min() works for numbers and strings, but not when we are comparing number with a string. \pause
+\item max("Language","Linguistics"); min("Language","language") - What exactly is happening?
+\end{itemize}
+See the document in Canvas. Don't start on the friday before submission. 
+\end{frame}
+
+\begin{frame}
+\frametitle{Assignment 1 - Key (2)}
+\small Let us say I am developing a small web-application which collects datafrom students. I ask students two questions - a) Enter a number, b)Enter another number. Once the students enter two numbers, I willshow them the sum of these two numbers. Now, you all know howstudents are. They don’t always read instructions properly, and evenif they read, there are those mischevious people. Write an algorithmor draw a flowchart to explain how do you make sure you ensure theyentered only numbers, not names or something.
+\end{frame}
+
+\begin{frame}
+\frametitle{Assignment 1 - Key (3)}
+\small Let us say we live in a world where all plurals in English are formedby adding an -es at the end of a word. Write an algorithm or drawa flow-chart for a possible program that takes a word as input and shows its plural as output.
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+Assignment 2 Description
+\end{center}
+\end{frame}
+
+\begin{frame}%5min
+\frametitle{Assignment 2}
+\begin{itemize}
+\item Grade: 10\%
+\item Deadline: 3 Feb
+\item Num. Questions: 4 (2+2+2+4)
+\item About?: What you learn until Today.
+\end{itemize}
+See the document in Canvas. Don't start on the friday before submission. 
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+Logical Operators and Boolean Expressions
+\end{center}
+\end{frame}
+
+%TODO
+\begin{frame}%5min
+\frametitle{Boolean Expressions}
+\begin{itemize}
+\item What is a Boolean Expression?
+\pause \\ Something that is either true or false, and where there is no other possibility. 
+\item Where are boolean expressions useful? 
+\pause \\ When you want to compare two things and make a decision based on the true/false situation.
+\item Boolean expressions in Python:
+\begin{enumerate}
+\item x == y, x!= y (to check if x and y have the same value)
+\item x $>$ y, x $>=$ y 
+\item x $<$ y, x$<=$y 
+\item x is y (x is the same as y)
+\item x is not y (x is not the same as y)
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}%5min
+\frametitle{Quiz Boolean Expressions}
+\begin{enumerate}
+\item Question: What is the difference between = and == symbols?
+\\ \pause = is assignment. == is comparison.
+\item Question: What is the difference between == and \textbf{is}?
+\\ \pause == is comparison, as usual. "is" is a comparison that compares not the values, but the memory locations of these objects/variables.
+\end{enumerate}
+Tip: Avoid using \textbf{is} for comparing strings and numbers.
+\end{frame}
+
+\begin{frame}%10min
+\frametitle{Quiz Boolean Expressions}
+What will these operations below give you: True or False?
+\begin{enumerate}
+\item 5 $>=$ 4.9999999
+\item 5 $<=$ "5"
+\item a = "string" \\ b = "string" \\ a==b
+\item x = 3 \\ x==3 
+\item "tail" $<$ "trail"
+\item "tango" $<$ "mango"
+\item 2 $>$ 5
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+Logical Operators
+\end{center}
+\end{frame}
+
+\begin{frame}%10
+\frametitle{Logical Operators}
+Three logical operators you should know: and, or, not
+\\ Using logical operators between two expressions results in a boolean value.
+\begin{enumerate}
+\item AND : (expression X) and (expression Y) is true only if both the expressions are true.
+\\ E.g., if x=3, which of the following are true:
+\begin{itemize}
+\item x $>$ 2 and x$<=$6
+\item x $>$ 0 and x $<=$2
+\end{itemize}\pause
+\item OR: expression X) or (expression Y) is true if any of the expressions is true.
+\\ E.g., if x=3, which of the following are true:
+\begin{itemize}
+\item x $>$ 2 or x$<=$6
+\item x $>$ 0 or x $<=$2
+\item x ==4 or x $>$56
+\end{itemize}\pause
+\item NOT: not(expression X) is true if expression X is false.
+\\E.g., if x=3, which of the following are true:
+\begin{itemize}
+\item not(x$>$2)
+\item not(x$<$3)
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\centering
+\Large Conditional Statements in Python
+\end{frame}
+
+\begin{frame}%10
+\frametitle{Conditional Statements}
+\framesubtitle{The Rhombuses of flowcharts}
+\begin{itemize}
+\item They are the if(A), do B. Else, do C kind of statements. 
+\item They allow us to model decisions inside our program. 
+\item They can be as simple as a single if-else or a chain of conditions or conditions within conditions and so on.
+\item Very useful construct in writing your programs
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]%10minutes
+\frametitle{Conditional Statements in Python}
+\begin{enumerate}
+\item Simple conditional statement: 
+\\ \begin{verbatim}
+if x==1:
+   print("x is one")
+else:
+   print("x is anything except one")
+\end{verbatim}
+\item Chained conditional statement (testing for several conditions in sequence):
+\\ \begin{verbatim}
+if x==0:
+   print("x is zero")
+elif x==1:
+   print("x is one")
+else:
+   print("x is neither zero nor one")
+\end{verbatim}
+\end{enumerate}
+Note: Look at the indentation of the code.
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Nested Conditionals}
+Conditions within conditions.
+\begin{verbatim}
+if x == y:
+    print 'x and y are equal'
+else:
+    if x < y:
+        print 'x is less than y'
+    else:
+        print 'x is greater than y'
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{A Small Recap exercise}
+Write the flowchart equivalents of:
+\begin{enumerate}
+\item Simple conditional 
+\item Chained simple conditionals
+\item Nested conditionals
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Combining Conditions and Logical Operators}
+\framesubtitle{Examples}
+\begin{itemize}
+\item if x$>$2 and x$<$6:
+\item if (x$>$10 and x $<$20) or y=="operation":
+\item if y=="operation" and z==False:
+\item if not(y=="operation") and (x==True or z$<$25):
+\end{itemize}
+.. and so on.
+\end{frame}
+
+\begin{frame}
+\frametitle{ESL Flowchart problem as a program - 1}
+Description from last week:
+\begin{itemize}
+\item Draw a flowchart for a ESL class placement test.  
+\item Here are thedetails:Everyone comes and takes an online exam with 40 fill in theblank questions that test English grammar skills.  
+\item Based on the test, you have to put the test takers into one of the sections: Beginner, Intermediate, Upper intermediate, advanced.
+\item Let us say anyone who scores less than 10 is a beginner, between 11 and 20 is in intermediate state, 21-30 is Upperintermediate, higher than 30 is advanced.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{ESL Placement: Program}
+\scriptsize
+\begin{verbatim}
+score = input("What is the student's score: ")
+if score.isnumeric():
+  score = int(score)
+  if score >=0 and score <=40:
+    if score <=10:
+       print("Beginner")
+    elif score >=11 and score <=20:
+       print("Intermediate")
+    elif score >=21 and score <=30:
+       print("Upper Intermediate")
+    else:
+       print("Advanced")
+  else:
+    print("Score is not in the range 0-40") 
+else:
+    print("You did not enter a number!")
+\end{verbatim} \pause
+Question: Why did I not write another if score $>=31$ and score $<= 40$? \pause
+Any questions from your end?
+\end{frame}
+
+\begin{frame}
+\frametitle{Today's Exercise}
+\begin{enumerate}
+\item Write a program that asks the user to enter a temparature in Celsius, and prints the temparature in Fahrenheit (Textbook question). 
+\item Write a program that asks the user to enter a temparature in Fahrenheit and prints the temparature in Celsius.
+\end{enumerate}
+\medskip
+Hint 1: Celsius to Fahrenheit conversion: (user\_input*9/5)+32 = your answer.
+\\ Hint 2: Fahrenheit to Celsius conversion: (user\_input-32)*5/9 = your answer.
+\end{frame}
+%Ending quiz for the day. With some questions about output prediction -10min
+
+\begin{frame}
+\frametitle{Next Class}
+\begin{itemize}
+\item Topics: Writing our own functions in Python, Practice. 
+\item Readings: Chapter 4 in the text book.
+\end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,222 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{url}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{27 March 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Class Outline}
+\begin{itemize}
+\item Assignment 5 discussion
+\item Assignment 6 description
+\item Working with webpages
+\item Working with external python libraries: case study with BeautifulSoup
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Guiding questions for this week}
+\begin{itemize}
+\item How to read information from different urls on the web?
+\item How to parse HTML (or other such structured text, eg. XML) without writing complicated regular expressions? (1 class)
+\item How do I read other people's code and make sense out of it? (continuation of last week)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Assignment 5 discussion}
+\begin{itemize}
+\item First question -straight forward if you follow the instructions in the book
+\item Second question - not too difficult if you are comfortable with loops and conditionals
+\item Third question - slightly more challenging, only 2 groups attempted, I think (and 1 group seems to have got it fully correct)
+\end{itemize}
+I need volunteers to discuss their solutions (all people in the group should participate)
+\end{frame}
+
+\begin{frame}
+\frametitle{Assignment 6 description}
+\begin{itemize}
+\item Group assignment
+\item Grade points: 10
+\item Deadline: 07 April 2018
+\item Task: combination of bottle + sqlite3
+\item You have all you need in the examples discussed in classes
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Reading from a webpage}
+\framesubtitle{Python's urllib library}
+\begin{itemize}
+\item urllib library in python is a collection of Python modules which allow us to read content from webpages.
+\item It has four modules: 
+\begin{enumerate}
+\item urllib.request - to open urls, read stuff from them
+\item urllib.error - deals with the errors arising out of the open/read process
+\item urllib.parse - for parsing urls. Inside a url, answers questions like: is this http or https? what are the parameters (e.g., xyz.com?user=a\&name=b) or queries, and so on. 
+\end{enumerate}
+\item Good intro and tutorial on urllib: \url{https://docs.python.org/3/library/urllib.html}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reading from a webpage, line by line}
+\footnotesize
+\begin{verbatim}
+import urllib.request
+fhand = urllib.request.urlopen('http://www.py4inf.com/code/romeo.txt')
+for line in fhand:
+   print(line.decode(encoding="utf8"))
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Reading from a webpage -2}
+What if the webpage is not a text file.. and it is a general HTML file?
+\tiny
+\begin{verbatim}
+import urllib.request
+url = "http://www.theunixschool.com/2012/09/examples-how-to-change-delimiter-of-file-Linux.html"
+fhand = urllib.request.urlopen('url')
+for line in fhand:
+   print(line.decode(encoding="utf8").strip())
+\end{verbatim}
+\normalsize This will print you all the html, and you need to write your regex or use other means to extract the text you want.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{What if the url is an image?}
+\scriptsize
+\begin{verbatim}
+import urllib.request
+imagepath = "http://www.phdcomics.com/comics/archive/phd031813s.gif"
+fhand = urllib.request.urlopen(imagepath)
+for line in fhand:
+   print(line)
+\end{verbatim}
+What will happen now?
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{So how should I "download" the image?}
+\scriptsize
+\begin{verbatim}
+import urllib.request
+imagepath = "http://www.phdcomics.com/comics/archive/phd031813s.gif"
+fhand = urllib.request.urlretrieve(imagepath)
+\end{verbatim}
+Now, fhand will tell you where the image is in our computer.
+What will happen now?
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Download and Save a image}
+\footnotesize
+\begin{verbatim}
+img = urllib.request.urlopen('http://www.py4inf.com/cover.jpg').read()
+fhand = open('cover.jpg', 'wb')
+fhand.write(img)
+fhand.close()
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{"Scraping" HTML}
+\begin{itemize}
+\item One of the popular uses of urllib library is to extract text from webpages. This is called "scraping".
+\item Scraping is also what a search engine like google does, when it crawls all the webpages, and then, retrieves them when we query it.
+\item So, how do we scrape? One simple (not really simple) way: regular expressions. \pause
+\item We saw some regular expression HTML examples in the past few weeks \pause
+\item Another way is to use one of the several python libraries for HTML parsing.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Scraping HTML with Regular Expressions}
+Three important things to know:
+\begin{enumerate}
+\item How can I look at the html source of a webpage? \pause
+\item How can I find what patterns I should target? \pause
+\item Third, but most important: how to write regular expressions!
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Scraping HTML with Python Libraries}
+\begin{itemize}
+\item There are a lot of Python libraries to do HTML scraping and parsing.
+\item Beautiful Soup is one of them, and very popular (It was popular in 2010 too, when I first used it)
+\item Lot of HTML on the web is broken.. but Beautiful Soup is very tolerant to such broken HTML and still gives you clean output.
+\item How to install? - install from PyCharm. Go the DIY way and figure out how to install.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{BeautifulSoup}
+\framesubtitle{Installation}
+\begin{itemize}
+\item How many of you successfully installed Beautiful Soup on your machines? \pause
+\item \url{https://www.youtube.com/watch?v=HJ9bTO5yYw0} - a video for doing it on PyCharm. 
+\item only difference: in Python3, after installation, you write: "from bs4 import BeautifulSoup"
+\end{itemize}
+\end{frame}
+
+%Theme: Beautiful soup
+\begin{frame}
+\frametitle{Using Beautiful Soup}
+BeautifulSoupBasics.py
+\end{frame}
+
+\begin{frame}
+\frametitle{How to work with Beautiful Soup}
+\url{http://www.crummy.com/software/BeautifulSoup/bs4/doc/}
+\end{frame}
+
+\begin{frame}
+\frametitle{Reading XML in Python}
+\begin{itemize}
+\item After HTML, another common format of saving textual information is XML. 
+\item XML is a structured markup, that is sometimes used to save corpora, database containing multiple fields per text etc.,
+\item Sometimes, it is also used by some programs that have a web query interface, to transmit results to another program. 
+\item So, learning to parse XML gives you two benefits: to use corpora stored in xml format easily, and to make use of the API of some programs, so that we can build on their output.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Some example XML files}
+\begin{itemize}
+\item Using XML to store a corpus (On browser: xml-example.xml, xml-example2.xml)
+\item Using XML to send a response over internet (On browser: Language Tool's output) \\ \url{https://languagetool.org:8081/?language=en-US&text=my+texd}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Parsing XML in Python}
+ParsingXMLExample.py, ParsingXMLExample2.py - in Canvas.
+\\ One uses Python's XML parser, Another example uses Beautiful Soup
+\\ More examples on parsing xml in python at: \url{http://www.diveintopython3.net/xml.html}
+\end{frame}
+
+\begin{frame}
+\frametitle{Practice Exercises}
+ Write a program to read in any wikipedia page on some topic (eg: Python programming language), and get all other language pages related to that webpage as the output. You can use Beautiful Soup, or Regular Expressions. 
+ If you see a access forbidden error while trying to read a page, figure out how to fix it. 
+\end{frame}
+
+\end{document}

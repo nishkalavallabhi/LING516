@@ -1,0 +1,9 @@
+import re
+
+filename = "pythonwikipage.html"
+content = open(filename).read()
+pattern = re.compile("<a.*</a>")
+matches =  re.findall(pattern,content)
+print(len(matches))
+for match in matches:
+    print(match)

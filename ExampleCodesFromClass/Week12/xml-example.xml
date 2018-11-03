@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<response status="success">
+  <message type="message" href="/messages/id/24470">
+    <board_id type="int">1798</board_id>
+    <root type="message" href="/messages/id/24270"/>
+    <kudos>
+      <count type="int">2</count>
+    </kudos>
+    <message_rating type="float">0.0</message_rating>
+    <last_edit_author type="user" href="/users/id/1330">
+      <login type="string">dtperry</login>
+    </last_edit_author>
+    <post_time type="date_time">2013-01-21T09:44:38+00:00</post_time>
+    <last_edit_time type="date_time">2013-01-21T09:44:38+00:00</last_edit_time>
+    <body type="string">&lt;P&gt;&lt;STRONG&gt;What are some negative reasons someone might self-improve? Why might these reasons have a negative impact on us?&lt;/STRONG&gt;&lt;/P&gt;
+&lt;P&gt;&lt;STRONG&gt;&lt;BR /&gt;&lt;/STRONG&gt;If someone attempts to self-improve in order to please somebody else, I would say this would be a negative reason. There&apos;s a chance it could backfire, and the person may lose some sense of his or her &quot;real self&quot;.&lt;/P&gt;</body>
+    <thread type="thread" href="/threads/id/24270"/>
+    <board type="board" href="/boards/id/Getting_Real_sessions"/>
+    <parent type="message" href="/messages/id/24466"/>
+    <teaser type="string"></teaser>
+    <views>
+      <count type="int">1211</count>
+    </views>
+    <subject type="string">Re: Improving Yourself</subject>
+    <id type="int">24470</id>
+    <read_only type="boolean">true</read_only>
+    <deleted type="boolean">false</deleted>
+    <author type="user" href="/users/id/1330">
+      <login type="string">dtperry</login>
+    </author>
+  </message>
+</response>

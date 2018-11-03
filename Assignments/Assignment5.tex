@@ -1,0 +1,35 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{hyperref}
+
+\begin{document}
+\begin{center}
+  Spring Semester 2018 \\ Iowa State University\\[3ex]
+  {\large ENGL 516 - Formal Methods of Linguistic Analysis}\\[3ex]
+  \textbf{Assignment 5} \\ \textbf{Submission Deadline: 24 March 2018}
+\end{center}
+
+
+\paragraph{Instructions:} This assignment consists of three questions. Do any two. Each question carries 5\% of your course grade. submit a zip file on canvas. If the code does not run and throws errors, you cannot get a grade unless you defend it in the office hours.
+
+\section*{Question 1}
+Read the Unix for Poets ebook (first 15 pages of \url{https://web.stanford.edu/class/cs124/kwc-unix-for-poets.pdf}), and do the following: Take the Ibsen.txt from Assignment 4, list the most frequent "trigrams" in the file following the series of unix commands described in the book. Submit a .pdf file listing all the commands one by one, and explaining what they did, along with your final list of 25 most frequent trigrams. Note: You will need either a MacOS, or Linux or Windows 10+ computer to be able to do this. Windows users, install Cygwin and figure this out. 
+
+\section*{Question 2}
+Bubble sort is a simple sorting algorithm that repeatedly loops through a list of items to be sorted, compares each pair of adjacent items and swaps them if they are in the wrong order. This process is repeated until there are no more swaps. Write a program that takes as input a list of numbers and produces a sorted list as output. Please do not use any built in functions and use only for or while loops. Note that you are essentially trying to imitate the sort() function of lists.
+
+\medskip
+Test case: 
+\\ Enter a list: [99,88,77,1,2,3,5]
+\\ Sorted list is: [1,2,3,5,77,88,99]
+
+\section*{Question 3}
+Binary search is a simple search algorithm that is used to search through a sorted list of items. The purpose of a search algorithm is to find if an item exists in the collection of items (list for our problem). Here is how it works: compare the target item with the mid-point of the sorted list. If the target item is larger, repeat the same process on the right half of the list. Else, repeat the process on the left half of the list. Do this until you have only one item left. Write a program that implements binary search. Please do not use any built in functions and use only loops. Note that you are essentially trying to imitate the find() function of strings. Hint: You need to sort the list first. Use the sort function you developed in question 1 for this by using a import statement.
+
+\medskip Test case: 
+\\ Enter a list: [99,88,77,1,2,3,5]
+\\ Enter the item you want to search for: 99
+\\ The index of this item in the list is: 7
+
+
+
+\end{document} 

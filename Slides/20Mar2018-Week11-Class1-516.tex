@@ -1,0 +1,137 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{url}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{20 March 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Announcements, Reminders etc.}
+\begin{itemize}
+\item Assignment 5 is due this weekend. 
+\item Start working on your final project.
+\item Try to spend more time on python in these last few weeks.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Questions about Last week}
+\begin{itemize}
+\item How many of you looked at the Web interface examples from last week? \pause
+\item How many of you think you can develop a quick, simple interface in Python now? \pause
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Assignment 4 discussion}
+\begin{itemize}
+\item Answers seem to be slightly different among people (primarily because of different pre-processing)
+\item Different formats of displaying outputs
+\end{itemize}
+-Like a nice teacher, I tolerated all these. So, I want 2 nice student volunteers - one for each question, to show their solutions.
+\end{frame}
+
+\begin{frame}
+\frametitle{Topic for the week: Databases}
+\begin{itemize}
+\item What is a database? How can we work with it?
+\item How can we "query" and modify databases with Structured Query Language?
+\item How can we integrate a database and a UI in Python?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is a database?}
+\begin{itemize}
+\item A database is a file (or files) used to save data in a structured manner. 
+\item We can visualize it as a table (or collection of tables), with many rows and columns.
+\item Each row is similar to a dictionary in python. There is a key, and a set of values associated with it. 
+\item However, while a dictionary is something that is stored in a program and goes away when the program closes, databases are things that are stored on your hard drive.
+\item Databases are a way to store and retrieve data quickly, and we can also make permanent changes to them in python programs.
+\item Some popular examples: spreadsheets, comma separated value (csv) files etc.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminology}
+\begin{itemize}
+\item Database Management System: Software that allows users/programmers to interact with a database and work with the data in it.
+\item Table, Rows, Columns
+\item Keys: The unique identifier of a row in a table.
+\item querying: issuing commands to a database to access or update data.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Basic operations with a database}
+\begin{itemize}
+\item Create: create a table or a collection of tables
+\item inserting new rows or new columns into tables
+\item updating (editing) an existing row in a table
+\item deleting something from a table
+\item selecting some rows from a table to view/print them or do something with them.
+\item Developing relations between two or more tables by creating either common keys, or mapping one table's key to another etc.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Databases in python}
+\begin{itemize}
+\item we will use sqllite3 - a python library that will allow us to access a database stored on our hard disk and manipulate it.
+\item To talk to the database, sqllite3 uses a format called "Structured Query Language (SQL)"  
+\item To view a database, it is good to have an excel like software. In Firefox, a plugin called SQLLiteManager allows you to do that (or install SQLite browser from http://sqlitebrowser.org/ )
+\item So, we write code to read/write info from database, and we can use SQLLiteManager to see if our code is really working.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{SQL Tutorial}
+\begin{itemize}
+\item Work in groups of 2-3 people, and do some lessons at: \url{http://www.w3schools.com/sql/}
+\item In the left panel, you see lesson names. Do: SQL Intro, Syntax, Select, Where, Insert into, Update, Delete 
+\item Let us say you spend about 30-40 min on this. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}%40min.
+\frametitle{Additional practice material}
+\begin{itemize}
+\item \url{http://sqlzoo.net/}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Working with databases in Python}
+\begin{itemize}
+\item CreatingADBExample.py
+\item InsertingIntoADBExample.py
+\item PrintEditDeleteExamples.py
+\end{itemize}
+(I will continue with these examples on Thursday)
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Class}
+\begin{itemize}
+\item SQL in Python
+\item TODO: Read Chapter 15 in textbook (There is a  lot of stuff in it, that I will not discuss, though)
+\item TODO: Take a look at these code examples.
+\end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,50 @@
+<!DOCTYPE html> <html> <head> <style> div.container {width: 100%;border: 1px solid gray;}
+    header, footer {padding: 1em;color: white; background-color: gray; clear: left;text-align: center;}
+    img {width:15%;nav {float: left; max-width: 100px; margin: 60;}
+    nav ul {list-style-type: none;padding: 0;} nav ul a {text-decoration: none;}}
+    </style></head>
+
+ <script type="text/javascript">
+
+     function validateForm()
+     {
+       var a = document.forms["Form"]["username"].value;
+       var b = document.forms["Form"]["password"].value;
+       if (a == null || a == "")
+       {
+          alert("Please check the username AND password, they were not entered correctly.");
+          return false;
+       }
+       if (b == null || b == "")
+       {
+          alert("Please check the username AND password, they were not entered correctly.");
+          return false;
+       }
+     }
+
+</script>
+
+    <header> <font size="6">Reading Test</font></header>
+
+<nav><center>
+<img src="http://seriousreading.com/wp-content/uploads/2015/12/wooden-bookshelf-full-of-books-800.jpg" alt="W3Schools.com"> <a href="#"></a>
+<img src="http://seriousreading.com/wp-content/uploads/2015/12/wooden-bookshelf-full-of-books-800.jpg" alt="W3Schools.com"> <a href="#"></a>
+<img src="http://seriousreading.com/wp-content/uploads/2015/12/wooden-bookshelf-full-of-books-800.jpg" alt="W3Schools.com"> <a href="#"></a>
+<img src="http://seriousreading.com/wp-content/uploads/2015/12/wooden-bookshelf-full-of-books-800.jpg" alt="W3Schools.com"> <a href="#"></a>
+    <img src="http://seriousreading.com/wp-content/uploads/2015/12/wooden-bookshelf-full-of-books-800.jpg" alt="W3Schools.com"> <a href="#"></a>
+    <img src="http://seriousreading.com/wp-content/uploads/2015/12/wooden-bookshelf-full-of-books-800.jpg" alt="W3Schools.com"> <a href="#"></a>
+ </center></nav><br> <br>
+
+<center> <font size="6"> <font color="#3366ff"><b><i>Please enter your login information:</i></b></font><br><br><br>
+
+    <form action="/userdetails" method="post"name="Form" onsubmit="return validateForm()">
+ <font size="6">
+    username: <input type="text" name="username" id="username" style="font-size:18px";style="height:25px"> <br><br>
+
+    password: <input type="text" name="password" id="password" style="font-size:18px";style="height:25px"> <br><br><br>
+
+<input type="Submit" value="Next" style="font-family: sans-serif; font-size: 15px; height:40px; width:100px"><br><br><br>
+
+    </form></font></center>
+
+<center><footer>Copyright © Sowmya Vajjala-Balakrishna </footer></center></div></body></font></html>

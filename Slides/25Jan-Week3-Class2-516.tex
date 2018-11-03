@@ -1,0 +1,262 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[graphicx]
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{25 Jan 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+%Topics: Functions (Chapter 4) and Exception handling etc. Loops (Chapter 5) - next week: 
+
+\begin{frame}%2minutes
+\frametitle{Class outline}
+\begin{itemize}
+\item Last class' exercise%10min
+\item Built-in functions in Python
+\item Functions vs Methods
+\item Errors, Debugging and Exception Handling %10 min
+\item Writing our own python functions
+\item Summing it up exercise%20min
+\end{itemize} %Next Class - 5min
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Last class' question}
+\framesubtitle{One of the solutions from Discussion Forum}
+\begin{verbatim}
+***F->C***
+inp = input('Enter Fahrenheit Temperature: ')
+fahr = float(inp)
+cel = (fahr - 32.0) * 5.0 / 9.0
+print(cel)
+***C->F***
+inp = input('Enter Celsius Temperature: ')
+cel = float(inp)
+fahr = (cel*9/5)+32
+print(fahr)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{Built-in functions in Python}
+Some functionalities are already implemented in Python, we don't need to write our code. Some examples are:
+\begin{itemize}
+\item print()
+\item type()
+\item int(), float(), str()
+\item min(), max()
+\item input()
+\item ord()
+\end{itemize}
+\end{frame}
+
+\begin{frame}%10minutes
+\frametitle{Built-in functions: Small exercise}%5-10 minutes.
+Go to the list of built-in functions in python. (\url{https://docs.python.org/3/library/functions.html})
+\\ 
+Pick five functions we did not discuss in the class, whose purpose you can guess going by the name. See the function description and your expectation match.
+\end{frame}
+
+\begin{frame}
+\frametitle{Python Modules}
+\begin{itemize}
+\item modules are large .py files that implement several functions. 
+\item a collection of such modules is called a python package
+\item if we want to use a module in our program, we type:
+\\ import module\_name
+\\ at the top of the program (you can type in the middle too, if the functions from this module are called after that line, but normally, putting all imports on top is the convention) \\ 
+\item e.g., random module - has functions to generate random numbers in different sequences (useful in scientific computing)
+\item e.g., math module - has mathematical functions (e.g., logarithm, square root etc)
+\item all modules: \url{https://docs.python.org/3/py-modindex.html}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{functions vs methods}
+\begin{itemize}
+\item We use len("python") but "python".isalpha() - what is the difference?
+\item The first one is called a "function", second one is a "method" that works for strings. \pause
+\item simple difference: functions - may work with several kinds of data types (e.g., print() works with integers, strings, floats, lists etc).
+\item methods are tied to specific data objects (i.e., .isalpha() works only for string variables. 
+\pause \item complex difference: There is something called "object oriented programming" - which is beyond the scope of this class.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Writing our own functions}
+\begin{itemize}
+\item Why?: To implement our own custom sequence of programming events.
+\item Advantage: reusability (I call print() so many times - I don't write code for print() functionality each time!)  \pause
+\item Functions can sometimes take arguments
+\\ $\Rightarrow$ e.g, if you use len() function to get the length of a string, you need to give it something in those brackets. len() throws an error. len("Python") shows something. \pause
+\item Some functions have optional arguments (print() and print("something") - it won't throw an error. \pause
+\item some functions don't take any arguments (e.g., locals() -returns currently assigned variables, and other internal python function names etc. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{lyrics.py example from textbook}
+\scriptsize
+\begin{verbatim}
+def print_lyrics():
+    print("I'm a lumberjack, and I'm okay.")
+    print('I sleep all night and I work all day.')
+
+def repeat_lyrics():
+    print_lyrics() \#-this is a function "call"
+    print_lyrics() \#-this is a function "call"
+
+repeat_lyrics() \#-this is a function "call"
+\end{verbatim}
+\small - What is the sequence of statements in this? What gets executed first?
+\end{frame}
+
+\begin{frame}
+\frametitle{Understanding the flow of execution}
+\begin{itemize}
+\item Functions have to be defined before they are "called".
+\item Program execution starts from the first statement of a program (or, if there is a "Main" function defined. More on this later)
+\item When Python sees a function call, it takes a detour, goes to that function, runs through that, and "returns" to where it stopped earlier.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Arguments and Parameters}
+\begin{verbatim}
+def add_str_int(some_string, some_int):
+   print(some_string, str(some_int))
+#some_string, some_int are parameters.
+
+add_str_int("python",3) #"python", 3 - are arguments. 
+add_str_int("Week", 4) #"Week", 4 - are arguments
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Fruitful function and void function - 1}
+Fruitful functions - give you back something as output, which you assign to some variable in your program.
+\small
+\begin{verbatim}
+def sum_two_numbers(a,b):
+   return a+b
+#Note: the above a, b - are only within that function. 
+#they don't exist beyond that. 
+a = sum_two_numbers(5,6) 
+b = a**3
+print(b)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Fruitful function and void function - 2}
+Void functions do not "return" anything. 
+\begin{verbatim}
+def sum_two_numbers(a,b):
+   a = a+1
+   b = b+1
+   print(a + b)
+
+c = sum_two_numbers(2,3)
+print(c)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Errors and Handling Them in code}
+%examples of errors.
+\begin{itemize}
+\item How it looks if you do not write some error handling code in your program:
+\begin{verbatim}
+Enter a number: <user enters "Sowmya">
+<output looks like:>
+Traceback (most recent call last):
+... ... 
+ValueError: invalid literal for int(): "Sowmya"
+\end{verbatim}
+\item How it looks if you write some code to handle these kind of errors:
+\begin{verbatim}
+Enter a number: <user enters "Sowmya">
+<output looks like:>
+Please enter a valid number
+\end{verbatim}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Errors and Handling Them in code}
+%examples of handling errors.
+In Python, we use a kind of conditional statement called try,except to do error handling. It is like an if-else, but serves a different purpose - used when we expect possible errors that may occur (e.g., division by 0, wrong input etc)
+\begin{verbatim}
+try:
+   number = input("Enter a number: ")
+   next_number = int(number)+1
+   print(int(number)/next_number)
+except Exception as e:
+   print(e)
+\end{verbatim}
+Note the indentation.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Error Handling: Another Example}
+This one can perhaps be handled by series of if else statements?
+\scriptsize
+\begin{verbatim}
+try:
+   number = int(input("Enter a integer number between 1 and 100: "))
+   if number >=1 and number <101:
+     print("you entered: " + str(number))
+   else:
+     print("You entered a number, but not between 1 and 100")
+except:
+   print("Please enter a valid number, and betwen 1 and 100")
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{Read this program description:}
+Read this program description: 
+\begin{itemize}
+\item It has two functions: ctof, ftoc - celsius to F, F to celsius (what you wrote on Tuesday)
+\item Prompt the user to choose a temparature scale: C or F. If something else is chosen, you should stop the program there, with a  message suggesting them to type either C or F.
+\item If the user entered C, call CtoF, print the output.
+\item If they chose F, call FtoC, print the output
+\item I will provide starter code for this, which handles possible exceptions. 
+\item Rule for this exercise: You should not use print() statements within these function definitions.
+%Next class: add that -58 +58, -130, +130 limit
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Extra exercise: }
+Extend this program to do this:
+\begin{itemize}
+\item If the user chooses C and then enters a temparature beyond the range: [-58, +58] Celsius, print a message asking them to enter something realistic and stop. Else, do the conversion.
+\item If the user chooses F and then enters a temparature beyond the range: [-130, +130] Fahrenheit, print a message asking them to enter something realistic and stop. Else, do the conversion.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Week}
+\begin{itemize}
+\item Topics: Writing loops, Commenting your code; Revision so far.
+\item Readings for the week: Chapter 5 in textbook
+\item Optional practice problems: Uploaded on Canvas.
+\item Other practice problems: at the end of Chapter 4 in the textbook
+\end{itemize}
+\end{frame}
+
+\end{document}

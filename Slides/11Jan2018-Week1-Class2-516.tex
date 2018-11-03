@@ -1,0 +1,390 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{11 Jan 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Class outline}
+\begin{enumerate}
+\item The English Teacher as a Programmer
+\item What is computing? Historical overview
+\item How does a computer work?
+\item What is a program?
+\item Python - A quick overview
+\item Assignment 1 description
+\item Old students visit
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+\Large 1. The English Teacher as a Programmer
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{A few questions}
+\begin{itemize}
+\item "English teachers make remarkably good programmers." - what do you think of this statement?
+\pause
+\item "programming can be a tool for evaluating and refining pedagogical assumptions." - How many of you agree?
+\pause
+\item What according to you are the limitations of writing programs to use in a classroom? 
+\pause
+\item Do you think English teachers becoming programmers can contribute back to programming?
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+\Large 2. What is computing?
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{A few questions}
+\begin{itemize}
+\item Firstly, what does it mean to compute? 
+\pause
+\item With that definition, What is computing, generally speaking?
+\pause
+\item What is a computer? 
+\pause 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is Computing?}
+\framesubtitle{Wikipedia says: }
+Computing includes:
+\begin{itemize}
+\item designing, developing, and building hardware and software systems
+\item processing, structuring, and managing various kinds of information
+\item doing scientific research on and with computers
+\item making computer systems behave intelligently
+\item creating and using communications and entertainment media
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is a Computer then?}
+\pause
+\textit{A computer is a general-purpose electronic device that can be programmed to carry out a set of arithmetic or logical operations automatically. Since a sequence of operations can be readily changed, the computer can solve more than one kind of problem.}
+(courtesty: Wikipedia, again)
+By this definition, how many computers do you own?
+\end{frame}
+
+\begin{frame}
+\frametitle{Evolution of Computers}
+\includegraphics[width=0.8\textwidth]{evolution.jpg}
+\medskip (source: \url{http://visual.ly/evolution-computers})
+\end{frame}
+
+\begin{frame}
+\frametitle{Resources for History buffs}
+\begin{itemize}
+\item Computer History Museum website \\ \url{http://www.computerhistory.org} 
+\item Wikipedia article \url{https://en.wikipedia.org/wiki/History_of_computing}
+\item Coursera course on "Internet History, Technology and Security" \\ \url{https://www.coursera.org/learn/internet-history}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+\Large 3. How does a computer work? 
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Working of a computer}
+\framesubtitle{roughly speaking...}
+\includegraphics[width=0.9\textwidth]{computer.png}
+\medskip (source: Chapter 1 of the textbook)
+\end{frame}
+
+\begin{frame}
+\frametitle{Parts of a computer}
+\begin{itemize}
+\item The Central Processing Unit (CPU)
+\begin{enumerate}
+\item .. obsessed with "what should I do next?"
+\item If your computer specifications say it has a speed of 3 Giga Hertz speed, the CPU asks this question three billion times per second :O!
+\end{enumerate}
+\item The Main Memory
+\begin{enumerate}
+\item ... stores all the information that the CPU can quickly access.
+\item also called RAM... your 4GB RAM, 16 GB RAM etc.. refers to that.
+\item So far so good... But everything goes away when the computer is turned off.
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Parts of a computer, continued}
+\begin{itemize}
+\item The Secondary Memory
+\begin{enumerate}
+\item .. can store a lot of information, without losing anything when the power goes off
+\item but then, CPU cannot access it in a super Fast fashion.
+\item Hard disks, flash drives etc.. come here.
+\end{enumerate}
+\item Input, output devices
+\begin{enumerate}
+\item monitors, keyboards, mouse, speaker, microphone etc. 
+\item .. all devices to feed information (input) or get information (output)
+\end{enumerate}
+\item Network
+\\ What is the point without a network connection? :-)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{If I program, what should I know about these?}
+\begin{itemize}
+\item You don't have to know:
+\begin{enumerate}
+\item how each of these parts is made. 
+\item how these computer parts talk to one another.
+\end{enumerate}
+\item But you need to know: 
+\begin{enumerate}
+\item How to use these resources to solve your problem
+\item ... efficiently and as quick as possible.
+\end{enumerate}
+\end{itemize}
+\medskip
+You need to be one who answers the CPU's "What Next?" question. And you answer the question by writing programs.
+\end{frame}
+%20 minutes
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+\Large 4. What is a program?
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is a program?}
+\begin{itemize}
+\item A program is a set of instructions to tell the CPU how to do things you want to be done. You are the boss for the CPU.
+\item Computers are not like us. They cannot make intelligent guesses about what we want. They need concrete and precise instructions for everything.
+\item So, to write a program for a computer, you need two things:
+\begin{enumerate}
+\item .. knowledge about a programming language which it can somehow understand \\ 
+(proper way of writing the language, vocabulary to use etc.. like a natural language)
+\item .. know how to tell your story to the computer (much like a natural language, again!)
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Your program as a story}
+\begin{itemize}
+\item Know what you have, Know what you want.
+\item Split your story er...program.. into a sequence of steps
+\item Look for the ifs and buts in your story, iterative and recurring events etc., and organize them
+\item And then...write...execute... run it to see it work.
+\end{itemize}
+\end{frame}
+
+\begin{frame}%5min
+\frametitle{Why do we need a programming language?}
+\framesubtitle{Can't we write programs in our own language?}
+Natural language
+\begin{enumerate}
+\item .. is complex.\pause
+\item .. is ambiguous.\pause
+\item .. is irregular with rules. \pause
+\item .. needs more space to express complex processes and thoughts.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}%5min
+\frametitle{Why are there so many programming languages?}
+\begin{itemize}
+\item Some languages give more control over machine resources (like memory allocation). Some others handle these themselves leaving programmers with only high level implementation.
+\item Some languages exist for specific purposes (like developing webpages, or typesetting texts, accessing databases)
+\item Some languages are procedure oriented i.e., a program is broken up into parts and sub-parts, which are separate, but can work together. 
+\item Some languages are object oriented i.e., programs are viewed as classes of objects
+\end{itemize}
+\end{frame}
+
+\begin{frame}%5min
+\frametitle{Evolution of Programming Languages}
+\begin{itemize}
+\item 1st generation: Everything is in 0s and 1s. Punch cards were used to run the code on a computer.
+\item 2nd generation: Some mneumonics and symbols (e.g., MOV A B)
+\item 3rd generation: Writes in a more human comprehensible way. (e.g., c = a + b)
+\item 4th generation: languages that are specific to certain applications (e.g., XML, SQL etc. Something like: SELECT Names from STUDENTS;
+\end{itemize}
+Suggested Reading: \url{goo.gl/cmbKWU}
+\end{frame}
+
+\begin{frame}
+\frametitle{An Example Code from 1st and 2nd generation languages}
+\includegraphics[width=0.9\textwidth]{Assembly-MachineCode-Example.png}
+\medskip (source: Page 7 in \url{https://richards.kri.ch/MachineLanguage.pdf})
+\end{frame}
+
+\begin{frame}
+\frametitle{Printing "Hello World" in 2nd and 3rd generation languages}
+\begin{itemize}
+\item 2nd generation language
+\includegraphics[width=0.6\textwidth]{Assembly-HelloWorld.png}
+\medskip (source: \url{http://www2.latech.edu/~acm/helloworld/asm.html})
+\item 3rd generation (Python): print "Hello World!"
+\\ So such languages can be called "High level languages".
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{How does this happen?}
+\begin{itemize}
+\item High level programming languages have programs within them that translate the code written by us into machine code.
+\item This happens in two ways: 
+\begin{enumerate}
+\item Compilers: It is like a translator program. It translates what we write in a high-level programming language into machine understandable code.  Compiled languages need a compiler for that language as an additional tool. (Example: Java)
+\item Interpreter: An interpreter is a translator of a different kind. Instead of translating the whole program, it translates step by step. Python is an interpreted language.
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}%7-8min
+\frametitle{Compilation and Interpretation}
+\begin{enumerate}
+\item Advantages of compilers over interpreters:
+\begin{itemize}
+\item Compiled languages are fast compared to interpreted languages, as they do one bulk translation step and that is it. They also tell you about the possible errors in the program before the program runs. 
+\end{itemize}
+\pause \item Advantages of interpreters over compilers: 
+\begin{itemize}
+\item They don't need an extra compilation tool before running the program. So, it is easy to make small changes, and see the output immediately.
+\end{itemize}
+\end{enumerate}
+\end{frame}
+%Different programming languages and why Python
+\begin{frame}%10min
+\frametitle{Why Python - 1}
+%From the web.
+\begin{enumerate}
+\item Python is one of the easiest to learn (and teach!) to beginner programmers.
+\item Python has a lot of support for doing natural language text processing.
+\item Python is one of the most popular introductory programming languages taught in various US universities
+\item Lot of tutorials and self-learning tools, textbooks, online courses and software exist for python compared to other languages.
+\item From a career perspective, python is a very useful skill to have on your CV if you want to go into programming. 
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why Python - 2}
+\framesubtitle{Some online resources about this}
+\begin{itemize}
+\item \url{http://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext}
+\item \url{https://www.quora.com/Why-are-we-advised-to-study-Python-as-the-first-programming-language-1}
+\item \url{http://www.swaroopch.com/notes/python/\#intro}
+\end{itemize}
+%From the web.
+\end{frame}
+
+\begin{frame}
+\frametitle{Some Useful Features of Python}
+\begin{itemize}
+\item Simple, easy to learn
+\item Free and open source
+\item High level language (so you don't have to talk in 0s and 1s to the computer!)
+\item Interpreted.. so more interactive
+\item Portable to other platforms and operating systems
+\item Lets you use programs written in other languages in your python code (Extensibility)
+\item Lets you use python code in other language programs (Embeddability)
+\item Lot of support through libraries that will reduce your chances of reinventing the wheel.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{A small exercise}
+\begin{center}
+Assuming everyone will be honest with you, how will you go about finding who is the youngest person in this class. Tell the story of your approach as a sequence of steps. You can discuss with each other, and I will give you 5 minutes to think. \pause How do you find out who is the second youngest person? 
+\end{center}
+\end{frame}
+%10min
+
+%Python overview
+\begin{frame}
+\frametitle{The language of Python}
+\begin{itemize}
+\item Basic vocabulary
+\item Basic functions
+\end{itemize}
+- let us see a "Python Console" to see what "interpreted language" means. 
+\end{frame}
+
+%Assignment 1 overview
+\begin{frame}
+\frametitle{Assignment 1}
+\begin{enumerate}
+\item 5\% of your grade
+\item 5 small questions which require you to work with Python console I just showed.
+\item Goal: Familiarize you with Python console
+\item Deadline: 20 January 2018 (extensions will not bring you full credit)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Class ..} %19th January.
+\begin{itemize}
+\item General overview of programming
+\item How to understand an algorithm, a flowchart, how to create them
+\item Building blocks of a program %CHAP 1
+\item Getting started with Python
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{ToDo before next class} %19th January.
+\begin{itemize}
+\item Try to install Python3+ and PyCharm Edu on your computers:
+\item Python: \url{https://www.python.org/downloads/} - install Python 3.6 or whichever 3+ you see.
+\item PyCharm Edu: \url{https://www.jetbrains.com/pycharm-edu/download/\#section=windows}
+\item Optional readings: Chapter 1 in the book. 
+\item Post your questions and installation problems in the discussion forum (Please do not send personal emails about installation troubles - let us avoid repetition!)
+\end{itemize}\end{frame}
+
+
+\begin{frame}
+\frametitle{}
+\begin{center}
+You can give anonymous feedback at: \url{https://goo.gl/5QfYSD}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Comments from old students}
+\begin{itemize}
+\item Hyunwoo Kim
+\item Ivana Lucic % (accents!)
+\end{itemize}
+\end{frame}
+
+\end{document}

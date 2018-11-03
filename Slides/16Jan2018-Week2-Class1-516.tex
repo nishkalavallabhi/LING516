@@ -1,0 +1,299 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516]{ENGL 516: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{16 Jan 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Class outline}
+\begin{itemize}
+\item Recap of Week 1 %5min
+\item Warmup questions on readings%10min
+\item Pre-programming 1: Flowchart %20min: 15 min of explanation + 5 min quiz
+\item Pre-programming 2: Algorithm %20min: 5min of explanation + 15 min quiz
+\item Python and Pycharm installation issues
+\item Getting started with Python
+\item Reminder: Assignment 1 Deadline on 20th January 2018
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Week 1 Recap}
+\begin{itemize}
+\item Course description and expectations
+\item "The English Teacher as a Programmer" discussion
+\item What is computing, history of computing, What is a program?
+\item Small exercises related to logical thinking and problem solving
+\item Assignment 1 description
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Questions on Readings}
+\framesubtitle{Chapter 1 in Severence's book}
+\begin{itemize}
+\item Where is a program stored? in the RAM or in the secondary memory? \pause
+\item What is an operating system? Can it be called a program? \pause
+\item What are compilers and interpreters? \pause
+\item When we type x=123 in Python console, where does it get stored? in primary or secondary memory? \pause
+\item What is a syntax error? How do you fix it?
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pre-programming}
+How to document the steps to solve a problem before writing a program? Two important ways:
+\begin{enumerate}
+\item Flowcharts
+\item Algorithms
+\end{enumerate}
+\end{frame}
+
+\begin{frame}%15min
+\frametitle{Pre-programming 1: Flowchart}
+\begin{itemize}
+\item What is a flowchart?: A flowchart is a diagram that shows various steps involved in a program, using boxes (of various shapes) connected by arrows. \pause
+\item Why are they used?: Design and analyze programs (in programming), describe the workflow in a process (more general use) etc. \pause
+\item How is it useful for us in this class?: to visualize the various steps involved in your program, thereby help you program correctly. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{An Example Flowchart}
+\includegraphics[width=0.6\textwidth]{flowchart-example1.png}
+\medskip \\ (source: \url{http://goo.gl/Q5WqGI})
+\end{frame}
+
+\begin{frame}
+\frametitle{What do those shapes mean?}
+\includegraphics[width=0.9\textwidth]{flowchart-symbols.png}
+\medskip \\ (source: \url{https://en.wikipedia.org/wiki/Flowchart})
+\end{frame}
+
+\begin{frame}
+\frametitle{An Exercise with Flowcharts}
+Draw a flowchart for a ESL class placement test. Here are the details:
+
+\begin{itemize}
+\item Everyone comes and takes an online exam with 40 fill in the blank questions that test English grammar skills. Based on the test, you have to put the test takers into one of the sections: Beginner, Intermediate, Upper intermediate, advanced. 
+\pause
+\item Let us say anyone who scores less than 10 is a beginner, between 11 and 20 is in intermediate state, 21-30 is Upper intermediate, higher than 30 is advanced. 
+\item Now, draw a flowchart (on paper) where you take a student score on the test as input, and gives one of the sections as output.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{One possible solution}
+\includegraphics[width=0.5\textwidth]{Flowchart-Example2.pdf}
+\end{frame}
+
+\begin{frame}
+\frametitle{Flowcharts: Conclusion}
+To conclude:
+\begin{itemize}
+\item Flowcharts are very useful to understand how to program.
+\item Practice drawing flowcharts for anything you want to solve through programming.
+\end{itemize}
+\medskip Optional Readings for enthusiasts:
+\begin{enumerate}
+\item \url{http://users.evtek.fi/~jaanah/IntroC/DBeech/3gl_flow.htm} - A lesson on flowcharts.
+\item \url{https://en.wikipedia.org/wiki/Flowchart} - Wikipedia article.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{A Fun Flowchart}
+\includegraphics[width=0.4\textwidth]{phdcomic-flowchart.jpg}
+
+\medskip (source: PhD Comics. \url{http://www.phdcomics.com/comics.php?f=1632})
+\end{frame}
+
+\begin{frame}%15min
+\frametitle{Pre-programming 2: Algorithm}
+\begin{itemize}
+\item What is an algorithm?: An algorithm is the sequence of steps to solve a problem. It is like a blue print for the program.
+\item Where is it useful?: To get clarity on how to write your program, to communicate about your program to others who don't know python.
+\item How is it useful for this class?: To learn to think like a programmer.
+\end{itemize}
+%What is an algorithm
+%http://users.evtek.fi/~jaanah/IntroC/DBeech/index.htm
+%How to write an algorithm
+%One example program in an algorithm
+%One in class quiz
+\end{frame}
+
+\begin{frame}%15min
+\frametitle{An example algorithm}
+\framesubtitle{Algorithm to make tea with a pot}
+\begin{enumerate}
+\item Pour water in a pot and put it on a stove for boiling.
+\item Add tea leaves (depending on the amount of water and your preference) to the pot.
+\item When the water starts boiling, turn off the stove.
+\item Pour the water from the pot into a cup through a strainer, to discard the leaves.
+\item Add sugar if you want.
+\end{enumerate}
+
+(Plain algorithm with no loops, no repetitions, no decisions to make)
+\end{frame}
+
+\begin{frame}[fragile]%15min
+\frametitle{Another example algorithm}
+\framesubtitle{Something that is more relevant?}
+Algorithm to calculate the sum of a given list of numbers. \\
+*********
+\begin{verbatim}
+start: 
+Let X be the list of numbers
+intialize sum = 0
+for each number x in X
+add x to sum
+After going through all numbers, 
+print out the value of sum
+Stop
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{Flowchart and Algorithm}
+\includegraphics[width=0.9\textwidth]{flowchart-algorithm.png}
+\medskip (source: \url{http://study.com/cimages/multimages/16/example-algorithm.png})
+\end{frame}
+
+\begin{frame}%15min
+\frametitle{Algorithm: An exercise}
+Write an algorithm for the same ESL placement test as the flowchart exercise.
+\end{frame}
+
+
+\begin{frame}%15min
+\frametitle{Python, PyCharm Installation}
+\begin{itemize}
+\item How many of you think you successfully installed Python 3+ and PyCharm?
+\item install python interpreter on your laptops. \url{https://www.python.org/downloads/}. 
+\item install PyCharm Edu software on your laptops. \url{https://www.jetbrains.com/pycharm-edu/download/}. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{PyCharm}
+\begin{itemize}
+\item Python Console versus Python Program files
+\item Other stuff: \url{https://www.jetbrains.com/help/pycharm/quick-start-guide.html}
+\item Remember: Everything cannot be said in the class. So, be prepared to explore such links on your own if needed. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{First steps in Python: Basic Calculations}
+\begin{verbatim}
+2+3
+2-3
+2*3
+2/3
+2%3
+5//2
+5**2
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{First steps in Python: Variables and Assignments}
+\begin{verbatim}
+a = 2
+b = 4
+c = d = 5
+e = "python"
+trial = 2.4
+bunch1 = [1,44,5,53,1]
+bunch2 = [1,22,33,3.55,1.5]
+bunch3 = [2,1,"Python","Programming"]
+\end{verbatim}
+Note: space here is optional, added only for readability
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{First steps in Python: Variable naming}
+\begin{itemize}
+\item Spaces are not allowed in names 
+\item Names should contain only letters, numbers and underscore
+\item Names cannot start with a number
+\item They are case-sensitive (a, A are not the same variable)
+\item Convention: start with a lowercase character.
+\item Convention: use underscore between words of a long variable name
+\item Variable name should not be one of the 'keywords' in Python
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{First steps in Python: 'keywords' in Python}
+\begin{verbatim}
+and       del       from      None      True
+as        elif      global    nonlocal  try
+assert    else      if        not       while
+break     except    import    or        with
+class     False     in        pass      yield
+continue  finally   is        raise
+def       for       lambda    return
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Re-assigning variables}
+\begin{verbatim}
+first = 1
+second = 2
+first = "Python3"
+first,second=2.5,"Changed"
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{First steps in Python: Quiz}
+\begin{verbatim}
+a,b,c = 2,3,4 (What is this doing?)
+a = b (What is a, b, c after this?)
+a == c (What is this??)
+d = hello (Will this work?)
+e (what happens after this?)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{rest of the class}
+\begin{itemize}
+\item I will walk around and look at installation issues and stuff
+\item Practise what we discussed so far (on lab computers or your laptops), may be start taking a look at Assignment 1 
+\end{itemize}
+\end{frame}
+
+\begin{frame}%5min
+\frametitle{Next Class}
+\begin{enumerate}
+\item Topics: Variables, Expressions, Logical operations
+\item ToDo before the class:
+\begin{itemize}
+\item Read Chapter 2 in textbook
+\end{itemize}
+\item If you want more practice: 
+\begin{enumerate}
+\item Practice drawing flowcharts and writing algorithms. Practice for problems like: "print all even numbers under 100", "count the number of words in a text" and so on. 
+\item Visit \url{https://www.python.org/about/gettingstarted/} and browse through the website to check what resources exist for beginners.
+\end{enumerate}
+\end{enumerate}
+\end{frame}
+
+\end{document}

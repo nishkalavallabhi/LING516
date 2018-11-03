@@ -1,0 +1,173 @@
+
+Title: On modeling reader-text interaction
+
+Authors: Sowmya Vajjala, Katharina Scheiter, Detmar Meurers and Alexander Eitel
+============================================================================
+                            REVIEWER #1
+============================================================================
+
+
+---------------------------------------------------------------------------
+Reviewer's Scores
+---------------------------------------------------------------------------
+
+                         Appropriateness: 5
+                                 Clarity: 3
+                             Originality: 4
+                 Soundness / Correctness: 4
+                   Meaningful Comparison: 4
+                               Substance: 4
+               Impact of Ideas / Results: 3
+         Impact of Accompanying Software: 1
+Impact of Accompanying Dataset / Resource: 2
+                          Recommendation: 4
+                     Reviewer Confidence: 3
+
+
+---------------------------------------------------------------------------
+Comments
+---------------------------------------------------------------------------
+
+This paper examines the interaction between text difficulty and language
+learner proficiency using eye-tracking methods. The problem itself is very
+interesting because readability research has so far mainly focused on the text
+and neglected the role of the individual. Eyetracking is not a commonly used
+technique in NLP research, so this paper could raise more interest for this
+method.
+
+In general, I find this paper very interesting and I think the introduction is
+well written. I liked that you used publicly available texts and attached the
+details. I just have the following remarks:
+- For a reader that is not highly familiar with GAMMS and eyetracking
+evaluation, the results are difficult to interpret. As you are only working
+with two texts per class, the exact numeric results are not too important
+because they can easily be artefacts of the experimental setup. It is more
+important to focus on your hypotheses and what you could learn from the
+experiment. I recommend the following: specify your research questions in a
+less general way and focus instead on a few aspects. For these aspects, the
+interpretation should then be carried out in more detail. You can save space by
+shortening the abstract and being a bit more concise in the description of your
+setup.
+- I do not understand the scale of the variable "text order" in figure 1.
+Generally, I am not sure I can interpret this figure.
+- The reference for Taylor 1958 is only correct, if you conducted a cloze test.
+If you used a C-test (as you describe), you should cite Klein-Braley and Raatz,
+or Grotjahn (or Beinborn et al. if you want a recent NLP reference):
+http://www.c-test.de/deutsch/index.php?lang=de&content=bibliografie&section=cte
+st
+I know that the Taylor article is hard to find. Do not cite it, if you did not
+read it (I am truly sorry, if I jumped to this conclusion too fast).
+
+Minor aspects:
+- I recommend to have the paper proofread by a native speaker. I found many
+typos (missing and repeated words) and there were some phrases that do not
+sound idiomatic too me (like "considering... into account")
+
+============================================================================
+                            REVIEWER #2
+============================================================================
+
+
+---------------------------------------------------------------------------
+Reviewer's Scores
+---------------------------------------------------------------------------
+
+                         Appropriateness: 2
+                                 Clarity: 4
+                             Originality: 3
+                 Soundness / Correctness: 4
+                   Meaningful Comparison: 4
+                               Substance: 2
+               Impact of Ideas / Results: 2
+         Impact of Accompanying Software: 1
+Impact of Accompanying Dataset / Resource: 1
+                          Recommendation: 1
+                     Reviewer Confidence: 4
+
+
+---------------------------------------------------------------------------
+Comments
+---------------------------------------------------------------------------
+
+This paper describes an analysis of the impact of English reading proficiency
+and text complexity on observable measures of reading behavior (eye tracking
+data and reading comprehension).
+
+The methodology is generally sound, but I cannot recommend the paper for EMNLP
+for two reasons.  First, the subject matter of the paper has little, if
+anything, to do with natural language processing.  While text complexity and
+eye-tracking are both potential data sources for NLP projects, this study does
+not actually make use of the textual data read by participants in any way; the
+base data consists of aggregates derived from the eye tracker, reading
+comprehension test scores, and structured metadata about participants and
+texts.        Second, the findings of the study are modest in scope, and have limited
+relevance for NLP researchers.
+
+============================================================================
+                            REVIEWER #3
+============================================================================
+
+
+---------------------------------------------------------------------------
+Reviewer's Scores
+---------------------------------------------------------------------------
+
+                         Appropriateness: 2
+                                 Clarity: 4
+                             Originality: 3
+                 Soundness / Correctness: 3
+                   Meaningful Comparison: 2
+                               Substance: 2
+               Impact of Ideas / Results: 2
+         Impact of Accompanying Software: 1
+Impact of Accompanying Dataset / Resource: 1
+                          Recommendation: 2
+                     Reviewer Confidence: 4
+
+
+---------------------------------------------------------------------------
+Comments
+---------------------------------------------------------------------------
+
+The paper reports the results of a study devoted to investigating the relation
+between text complexity and reader's language ability and how this relation is
+reflected in reading process. The authors devised two main sets of experiments:
+in the first one, they used two eye-tracking measures - fixation count and
+average fixation duration - to study the on-line interaction between text
+complexity and readers' proficiency; in the second one, the readers were asked
+to answer two types of questions after having read the same texts used in the
+eye-tracking experiments.
+
+Although the authors report and discuss the results of a number of different
+experiments, I lose any sight of computational linguistics. The main problem is
+that the rich investigations devoted to find cognitive correlates of text
+complexity and reader proficiency are not accompanied by text analyses devoted
+to find linguistic structures related to text complexity. For example, I would
+expected that in the fixation count and the average fixation duration
+experiments the authors would investigate the linguistic characteristics of the
+text passages fixed by the readers. In this respect, the study of text
+characteristics related in literature to linguistic complexity could be carried
+out. For example the distribution of content and functional words, of some
+syntactic characteristics such as the distance of the subject from the verb,
+etc. can be investigated. The psycho-linguistic and computational linguistic
+literature on elements related to linguistic complexity is very rich but is
+missing in this paper.
+
+In the experimental set-up section, the authors report that "non-native English
+speakers studying in a German university" participated in the study. However,
+they do not refer to the rich literature on elements of text complexity for
+second language learners. In the same paragraph, at lines 125-129: why did the
+language competence of the participants to the study have been evaluated using
+the c-test? The Common European Framework of Reference for Languages (CEFR) is
+the international standard for describing language ability. The CEFR scale is
+typically used in the readability assessment literature to evaluate L2
+learners' language skills.
+
+The description of the experiments should be detailed in the paper not only in
+the supplementary material. In the paper, relevant information concerning the
+statistical significance of the obtained results is missing. In addition, a
+number of questions are still open. For example: how many learners there are
+per proficiency levels? The number would be relevant in order to know the
+reference population. Or, how did the answers to the recall and comprehension
+questions have been evaluated? With respect to a rubric defined a-priori?  Who
+evaluated the answers? A L2 teacher or the authors of the paper?

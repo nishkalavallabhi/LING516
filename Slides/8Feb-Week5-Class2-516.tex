@@ -1,0 +1,294 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{8 Feb 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}%2minutes
+\frametitle{Class outline}
+\begin{itemize}
+\item Strings - continuation
+\item Regular Expressions (RegEx) - Basics
+\item Practice exercises
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Summary of last class}
+\begin{itemize}
+\item Looping through strings (while/for loop by index, for loop by character)
+\item Indexing forwards and backwards
+\item String slicing
+\item some builtin string methods
+\end{itemize}
+\end{frame}
+
+\begin{frame} %Directly give an overview here, and start about the terminology later.
+\frametitle{Built-in methods for strings}
+Some of them
+\begin{itemize}
+\item example="Some Example String"
+\item print(example.upper())
+\item print(example.lower())
+\item print(example.startswith("S"))
+\item print(example.endswith("S"))
+\item print(example.isdigit())
+\item print(example.find("e"))
+\item print(example.find("e",5))
+\item print(example.find("tri")
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{More on String methods}
+\begin{itemize}
+\item Each string object can make use of a few built-in functions that are useful to do some string manipulations. Such functions that work on objects/variables are called methods.
+\item a built-in "function" called "dir()" shows all the available "methods" for a given object like a string, integer etc.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{"in" operator and String comparisons}
+\begin{itemize}
+\item "The word \textbf{in} is a boolean operator that takes two strings and returns True if the first appears as a substring in the second".
+\item e.g., 'seed' in 'banana' returns FALSE. "a" in "banana" returns TRUE. \pause
+\item We can also compare two strings using ==, $<$ and $>$ as with numbers (Keep in mind - lower case and upper case characters are treated differently!)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Parsing Strings: Exercise}
+Write a function that takes in  a string, and returns a string with punctuation stripped from original string.\pause
+\scriptsize 
+\begin{verbatim}
+import string
+def remove_punctuation(s):
+    s_without_punct = ""
+    for letter in s:s
+        if letter not in string.punctuation:
+            s_without_punct += letter
+    return s_without_punct
+
+print(remove_punctuation('"Well, I never did!", said Alice.'))
+print(remove_punctuation("Are you very, very, sure?"))
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Parsing Strings: Exercise}
+\begin{itemize}
+\item From the textbook, understand how .find() method for strings works. 
+\item Now, write a program with a function \textbf{findit}, that takes three arguments, two strings and a number, and returns the remaining part of the string after the occurrence of the substring after the given location 
+(real life descriptions can be messy like this!) \pause
+\item Okay, here is how your program's interaction should look like: \scriptsize
+\begin{verbatim}
+enter a string: "mississippi"
+enter a substring: "ss"
+enter a number: 4
+output is: ssippi
+\end{verbatim} \pause
+\item \begin{verbatim}
+def findit(str,substr,num):
+    ind = str.find(substr,num)
+    return str[ind:]
+
+print(findit("Mississippi","ss",4)) 
+#Do the interactive input part yourself! 
+\end{verbatim}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Another similar question}
+\framesubtitle{Exercise 5 of Chapter 6}
+The question: Take the following Python code that stores a string:
+\\ str = 'X-DSPAM-Confidence:  0.8475'
+\\ Use find and string slicing to extract the portion of the string after the colon character and then use the float function to convert the extracted string into a floating point number. \pause
+\medskip \\ One solution: 
+\small
+\begin{verbatim} 
+str = 'X-DSPAM-Confidence:  0.8475'
+index = str.find(":")
+required = str[index+3:] 
+#because there are two spaces before the number started.
+print(float(required))
+\end{verbatim}
+(Note: in a real program, you need to watch out for possible things that can go wrong and have exception handling)
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{strip() method for Strings}
+Taking the previous problem again, I can get what I want in a different way.
+\begin{verbatim} 
+str = 'X-DSPAM-Confidence:  0.8475'
+index = str.find(":")
+required = str[index+1:].strip() 
+print(float(required))
+\end{verbatim}
+
+\medskip strip() method strips off the white spaces, tabs etc at the beginning or end of a string. There are lstrip() and rstrip() methods as well. 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{replace() method for Strings}
+replace() is used to replace part of a string with some other value. See this example.
+\begin{verbatim}
+str = ’X-DSPAM-Confidence:  0.8475’
+newstr = str.replace("X","Y")
+print(newstr)
+Y-DSPAM-Confidence:  0.8475
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{String methods - practice1}
+\framesubtitle{What is this code doing?}
+\begin{verbatim}
+def secretFunction(str1,str2):
+  str1_lower = str1.lower()
+  str2_lower = str2.lower()
+  if str1_lower == str2_lower:
+     return True
+  else:
+     return False
+print(secretFunction("LaTex","latex"))
+print(secretFunction("Nature","Nurture"))
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{String methods - practice 2}
+\framesubtitle{What is this code doing?} \small
+\begin{verbatim}
+def secretFunction2(str1,str2):
+  result = ""
+  result = str2[0:2] + str1[2:] + " " + str1[0:2] + str2[2:]
+  return result
+print(secretFunction2("suntan","sinner"))
+print(secretFunction2("whats","that"))
+\end{verbatim}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{}
+\centering
+\Large Regular Expressions
+\end{frame}
+
+\begin{frame}
+\frametitle{Regular Expressions}
+\begin{itemize}
+\item Regular expressions are used to do do pattern based information extraction from data. 
+\item They have their own syntax for doing pattern matching in different ways.
+\item They are very useful to process text and manipulate it.
+\item Regular expressions in python are in a module called "re" and you can use them in your code once you add a "import re" statement in your program/console.
+\item They can simplify a lot of your tasks, but they themselves can be very complicated.
+\item pythex.org - is what I will use today to explain the syntax. We will use import re in our code next week.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{RegEx syntax}
+\begin{enumerate}
+\item \^{} matches the beginning of a line. For example,
+\begin{itemize}
+\item a pattern \^{}Th matches all lines in a text file that start with Th
+\end{itemize}
+\item \$ matches the end of a line. For example,
+\begin{itemize}
+\item a pattern Th\$ matches all lines in a text file that end with Th
+\end{itemize}
+\item $\backslash s$ matches a white space character
+\item $\backslash S$  matches a non-white space character.
+\end{enumerate}
+%approx 20min
+\end{frame}
+
+\begin{frame}
+\frametitle{RegEx syntax}
+\begin{enumerate}
+\item . matches any character
+\item * -applies to the immediately preceding character and indicates to match zero or more of the preceding character(s).
+\begin{itemize}
+\item for example, te* matches all locations where there is a t, te, tt, tete etc.
+\end{itemize}
+\item + - applies to the immediately preceding character and indicates to match one or more of the preceding character(s).
+\begin{itemize}
+\item for example, te+ matches all locations where there is a te, tete, tetete etc.
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{RegEx syntax - continued}
+\framesubtitle{The power of square brackets}
+\begin{enumerate}
+\item \lbrack aeiou\rbrack - matches a single character as long as the character is in this set.
+\item You can also specify ranges in square brackets. For example, [a-z0-9] matches all characters in lower case or a single digit.
+\item When the first character after the square brackets is a caret (\^{}), it works like a "not" keyword. So, [\^{}a-z0-9] matches all characters that are not lower cased letters, and not numbers.
+\end{enumerate}
+%approx 20min
+\end{frame}
+
+\begin{frame}
+\frametitle{Escape Character}
+What do you do if you want to match a ? or a . which also carry a meaning in regex? \pause
+\\ We "escape" them to tell regex module that these are real characters and not regex syntax. This is done using a $\backslash$ character. 
+
+ \medskip So, st$\backslash$. is a pattern that searches for all occurences of "st." in a string.
+%approx 20min
+\end{frame}
+
+\begin{frame}
+\frametitle{Regex practice on \url{http://pythex.org}}
+Go to APLING program homepage (apling.engl.iastate.edu) and copy the welcome message there into pythex test string area. Now, try to write regex patterns to get the following:
+
+\begin{enumerate}
+\item All occurences of the word "is" (Not th\textbf{is}, lingu\textbf{is}tics, etc. Only "is")
+\item All occurences of the letter e, irrespective of the case. 
+\item All occurences of "es" where it occurs in the middle of the word (i.e., es should not be followed by a space, comma, fullstop etc)
+\end{enumerate}
+\end{frame}
+
+%split - comes later, next week when we talk about lists.
+\begin{frame}
+\frametitle{Next Class}
+\begin{itemize}
+\item Topics: re module in python
+\item Readings: Chapter 11 in the text book.
+\item Optional exercises for the week: Uploaded on Canvas
+\end{itemize}
+\end{frame}
+\end{document}
+
+
+\begin{frame}
+\frametitle{Python's "re" module}
+Introducing re, using import statements
+\end{frame}
+
+\begin{frame}
+\frametitle{re.search() function}
+Introducing re, using import statements
+\end{frame}
+
+\begin{frame}
+\frametitle{Small group exercise}
+Read the documentation of the string methods at \url{https://docs.python.org/3/library/stdtypes.html\#string-methods}. You might want to experiment with some of them to make sure you understand how they work. strip and replace are particularly useful. Write your explanations about .rstrip(), .strip(), .split(), .splitlines() functions in Python in the Forum for today's date. 
+\end{frame}
+

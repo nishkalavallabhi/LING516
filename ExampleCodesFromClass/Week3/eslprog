@@ -1,0 +1,16 @@
+score = input("What is the student's score: ")
+if score.isnumeric():
+  score = int(score)
+  if score >=0 and score <=40:
+    if score <=10:
+       print("Beginner")
+    elif score >=11 and score <=20:
+       print("Intermediate")
+    elif score >=21 and score <=30:
+       print("Upper Intermediate")
+    else:
+       print("Advanced")
+  else:
+    print("Score is not in the range 0-40")
+else:
+    print("You did not enter a number!")

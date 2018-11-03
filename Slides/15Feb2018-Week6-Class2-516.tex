@@ -1,0 +1,333 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18 \\ Topic: Lists in Python}
+
+\date{15 Feb 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+%
+\begin{frame}
+\includegraphics[width=0.8\textwidth]{progtips1.png}
+\\ source: \url{https://hackernoon.com/how-to-learn-a-new-programming-language-faster-dc31ec8367cbs}
+\end{frame}
+
+\begin{frame}
+\frametitle{5 points to improve your programming logic}
+\begin{itemize}
+\item Think, split a problem into sub problems
+\item practice
+\item learn about different data structures, some common algorithms
+\item learn general programming paradigms in that language
+\item look at other people's code
+\end{itemize}
+source: \url{https://hackernoon.com/5-points-to-improve-your-programming-logic-23c8bbafe8d2}
+\end{frame}
+
+%Rstrip() strip() example on documentation - explain
+\begin{frame}
+\frametitle{Class Outline}
+\begin{itemize}
+\item Lists in Python
+\item Practice with Lists
+\item Note: We will get back to regular expressions on Tuesday again.
+\item Reminder: Assignment 3 is due this weekend.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is a List?}
+\begin{itemize}
+\item A list is a sequence of values. A string can be seen as a list of characters. There can be a list of strings as well.
+\item These values in a list are called "elements" or "items".
+\item Lists in Python are identified by the presence of square brackets. 
+\item Examples:
+\begin{enumerate}
+\item \lbrack 516,515,520,540\rbrack - is a list of integers
+\item \lbrack"Python","Java","Perl","R","Ruby"\rbrack - is a list of strings.
+\item \lbrack'spam', 2.0, 5, \lbrack10, 20\rbrack\rbrack - is list with elements of various data types. There is a list inside a list too!
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{An Example list and its use}
+Look at this code:
+\begin{verbatim}
+str = "Look at this code"
+demoList = str.split(" ") 
+#Splits the string wherever there is a space.
+print(demoList)
+['Look', 'at', 'this', 'code']
+print(len(demoList) 
+# prints the number of items in a demoList object. 4 here.
+print(demoList[1]) 
+# prints "at".
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Lists and their components: An Exercise}
+Type the following on the console and see what happens.
+\begin{verbatim}
+complexList = [1, "complex list", ["nested", "item"]]
+print(complexList[1])
+print(complexList[2])
+print(complexList[3])
+print(complexList[2][0])
+print(complexList[2][1])
+print(len(complexList))
+print(len(complexList[2]))
+anotherList = [1, 2, 3]
+print(complexList, anotherList)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Lists are Mutable}
+\begin{itemize}
+\item What is mutability? Are strings mutable? \pause
+\item Strings are immutable. But lists are mutable.
+\item Try to guess what each of these lines do, and then type them on console and see what is happening with print statements.
+\begin{verbatim}
+numbers = [1, 2, 3, 123]
+print(numbers[1])
+newNum = numbers[0]
+numbers[0] = 2
+print(numbers)
+\end{verbatim}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Traversing a List}
+... is the same as traversing a string.
+\begin{verbatim}
+numbers = [1, 2, 3, 123]
+#One way:
+for item in numbers:
+  print(item)
+#Another way:
+for index in range(0,len(numbers)):
+  print(numbers[i])
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Why traverse using an index?}
+What will this code do?
+\begin{verbatim}
+numbers = [1, 2, 3, 123]
+print(numbers)
+for index in range(0,len(numbers)):
+  numbers[index] = numbers[index]*numbers[index]
+print(numbers)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{List operations}
+\begin{itemize}
+\item + operator concatenates lists.
+\begin{verbatim}
+a = [1,2,3]
+b = [4,5,6]
+c = a+b
+print(c)
+#this gives you:
+[1,2,3,4,5,6]
+\end{verbatim}
+\item * operator repeats a list given number of times.
+\begin{verbatim}
+print(a*3)
+[1, 2, 3, 1, 2, 3, 1, 2, 3]
+\end{verbatim}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{List slicing}
+Some part of the usage is the same as in strings.
+\begin{verbatim}
+c = [1,2,3,4,5,6]
+print(c[1:3])
+[2,3]
+\end{verbatim} \pause
+\medskip 
+A slice operator, for lists, however can be used on the left hand side, to change list contents.
+\begin{verbatim}
+c[1:3] = [8,9]
+print(c)
+[1, 8, 9, 4, 5, 6]
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{List "Methods"}
+\begin{enumerate}
+\item append(): takes one argument and adds it as a new element to the end of the list. 
+\item extend(): takes a list as argument and appends all items in the list to the current list. 
+\item sort(): sorts list elements from low to high.
+\end{enumerate}
+Important note: All these three methods change the list. They do not return the value into a new variable.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{List "Methods": Exercise}
+Go to python console and try the following things:
+\begin{enumerate}
+\item a = [1,2,3]
+\item a.append(4)
+\item print(a)
+\item print(a.append(4,5))
+\item print(a)
+\item print(a.append([1,2,3]))
+\item print(a)
+\item print(a.extend([1,2,3]))
+\item print(a)
+\item b = [1,4,5,8,0,3]
+\item b.sort()
+\item print(b)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{extend vs +}
+What is the difference between extend and +? Figure this out yourself later, by trying what you know so far, by searching online etc. 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Deleting elements in a list}
+Different ways:
+\begin{enumerate}
+\item if you know the index of the element, use pop(index) or del operator
+\item If you know the element you want to remove (but not the index), you can use remove() 
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Deleting elements in a list: exercise}
+Try the following in the Python console.
+\begin{enumerate}
+\item a = [1, 2, 3, 4, 5, 6]
+\item a.pop()
+\item print(a)
+\item a.pop(1)
+\item print(a)
+\item del(a[1])
+\item print(a)
+\item a.remove(1)
+\item print(a)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Lists and Functions}
+Type the following in the Python console and observe the output:
+\begin{enumerate}
+\item nums = [3, 41, 12, 9, 74, 15]
+\item print(len(nums))
+\item print(max(nums))
+\item print(min(nums))
+\item print(sum(nums))
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Lists and Strings}
+Type the following in the Python console and observe the output:
+\begin{enumerate}
+\item string1 = "python"
+\item alist = list(string1) \#converts string to a list
+\item print(alist)
+\item string2 = "this is a longer string"
+\item blist = string2.split()
+\item print(blist)
+\item string3 = "there are strings, lists, int, and float"
+\item clist = string3.split(",") \#, is called the delimiter.
+\item print(clist)
+\item comma = ","
+\item string4 = comma.join(clist)
+\item print(string4)
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{"Aliasing"}
+Let us say you want to copy the contents of one list into another. How do you go about that?
+\medskip \pause
+Let a = [1, 2, 3] be a list. Will it be sufficient if I say b = a in Python? \medskip \pause
+Try these things on the console:
+\begin{itemize}
+\item a = [1,2,3]
+\item b = a
+\item b[0] = 9
+\item print(a)
+\end{itemize}
+Did you see what you expected to see?
+\end{frame}
+
+\begin{frame}
+\frametitle{So, how should I copy from one list to another, then?}
+\begin{itemize}
+\item a = [1,2,3]
+\item firstcopy = list(a)
+\item secondcopy = a[:]
+\end{itemize}
+There are also other ways, by using "copy" module in python. Find out yourselves!
+\end{frame}
+
+\begin{frame}
+\frametitle{Practice Exercise: 1}
+\framesubtitle{Exercise 6 in Chapter 8}
+Write a program that interacts with user like this, using lists and list functions:
+\includegraphics[width=0.5\textwidth]{listquestion.png}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Practice Exercise: 2}
+Modify the user input in the above program such that you take all input in one line (space separated integers). Write any code for exception handling. i.e., example interaction should be:
+\begin{verbatim}
+Enter your numbers separated by space: 1 2 3 4 5 6
+Maximum: 6
+Minimum: 1
+\end{verbatim}
+(Use lists)
+\end{frame}
+
+\begin{frame}
+\frametitle{Additional Practice Exercises}
+\begin{itemize}
+\item Create a list containing 100 random integers between 0 and 1000 (use a loop, append function, and the random module). Write a function called average that will take the list as a parameter and return the average.
+\item Write a function sum\_of\_squares(xs) that computes the sum of the squares of the numbers in the list xs, and use it in main().
+\item Count how many words in a list have length 5.
+\item Sum all the elements in a list up to but not including the first even number.
+\end{itemize}
+More in the 2nd textbook: \url{http://interactivepython.org/runestone/static/thinkcspy/Lists/Exercises.html}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Next Week}
+\begin{itemize}
+\item Topics: use of Tuples and Dictionaries in Python; Reading and Writing content from Files
+\item Readings: Chapters 7, 9 and 10 in the text book
+\item For Tuesday: Read - Chapter 7 (Files)
+\item Do: Exercises at the end of lists chapter.
+\item Assignment 3 is due this weekend!
+\end{itemize}
+\end{frame}
+\end{document}

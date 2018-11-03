@@ -1,0 +1,291 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{url}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{1 March 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Outline}
+\begin{itemize}
+\item Announcements etc.
+\item Solution to yesterday's question
+\item Writing small web-applications in Python: An Introduction
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Announcements etc}
+\begin{itemize}
+\item Questions about assignment 4: I updated the description on Canvas to clarify things. \pause
+\item Order of assignments: A5--A7 changed (deadlines remain same. A5 became A6. A6 became A7 and A7 became A5).
+\item Reason: I forgot about LARC being right after spring break - that may not give enough time for original A5.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is a web application?}
+First things first: What according to you is a web-application? What should it do?
+\pause \\ What should we know to develop programs that work on the browser, over the web, in python?
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminology}
+\begin{enumerate}
+\item Server - a computer device or program that provides some functionality to several programs called clients. In web programming, clients are typically browsers on your users' machines. 
+\item Client - devices or software that access the services of a server.
+\item Server side programming: programs that you write to make your server do its job.
+\item Client side programming: programs you write on the clients side, so that the client-server communication happens, and so that the client does not go to server for things that can be done there itself.
+\item In this class, we will talk about server side web programming.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why is this here?}
+\begin{enumerate}
+\item Since this is a first computer programming course, I care about breadth, not depth (in 520, it is depth)
+\item Developing a web-application is not something you can totally rule out as impossible in future.
+\item So, understanding basic workings will only help you (atleast to communicate with whoever is doing the web-application for you. \pause
+\item It is one of those "You'll thank me later" things, as far as I am concerned. 
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Web application development in Python}
+\begin{itemize}
+\item There are some collections of packages and modules in Python, that allow us to write web application code. These are called "Web Frameworks".
+\item They take care of low level details and allow us to focus only on our application. 
+\item Several web frameworks exist in python, and their primary differences lie in the diversity of functionalities they provide. 
+\item For a detailed overview: \url{https://wiki.python.org/moin/WebFrameworks/}
+\item For a general idea about using python in the web: \url{https://docs.python.org/2/howto/webservers.html}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Bottle: Introduction}
+\begin{itemize}
+\item Bottle is a light weight, easy to setup web framework for Python. It is distributed as a single module, and does not have any external dependencies.
+\item Provides support for basic data access, file uploads, display of web pages and so on.
+\item installation: 
+\begin{enumerate}
+\item Download bottle.py from \url{http://bottlepy.org/bottle.py} and save it into your project folder. Then, just import bottle in your program, and you are ready to go.
+\item "install" bottle in PyCharm (\url{https://goo.gl/uTTPwp})
+\end{enumerate}
+\end{itemize}
+%http://bottlepy.org
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{A Hello World Web Application}
+\footnotesize
+\begin{verbatim}
+from bottle import route, run
+
+#route is to give a path
+@route("/")
+def whatever():
+    return 'Hello world!'
+
+#route is to give a path
+@route("/hello")
+def anotherfunction():
+    return 'Hello world in hello path!'
+
+#run is to run your program on the server
+#localhost - your computer.
+#When you deploy the application somewhere, 
+#you will put that IP instead of localhost
+run(host='localhost', port=8080)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminology}
+\begin{enumerate}
+\item @route, @get, @post - these are "descriptions" before a function definition, used to tell us what the purpose of the function is.
+\item @route: route takes you to a path on the website and executes that function below it.
+\item @post: this is used typically in cases where we "submit" some data to the server, and the server receives whatever we sent (does some processing if needed)
+\item @get: this is used to get some information from the server to the client browser.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{HTML}
+\begin{itemize}
+\item HTML - Hyper Text Markup Language. It is a markup used to display formatted data on webpages. We can think of it as a protocol between the browser and the webpage author on how the content should be displayed.
+\item HTML - is full of various tags. So, key to writing good HTML is to know what these tags are and what functionalities they have.
+\item You can do a lot of things with HTML, but we don't have to know all that for your final projects.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{HTML Tutorial}
+\begin{itemize}
+\item HTML is a collection of tags. Most the tags also have an end tag. For example, a tag XX starts with $<XX>$ and ends with $</XX>$.
+\item Two top level tags are : head and body. Head contains information about the title of the page and other meta data. Body contains the actual body of your html page.
+\item Inside body, you can have "forms" where the user can enter some input (choose from a list of options, enter some text, enter passwords etc.) and submit it to your server to do some additional processing.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{A basic HTML page}
+\begin{verbatim}
+<html>
+<head><title>A HTML Page </title></head>
+<body> This is an example html page </body>
+</html>
+\end{verbatim}
+Some text formatting tags: b is for bold, i is for italics, $<br>$ is for a new line (without an end tag), $<p>$ and $</p>$ cover a paragraph..and so on.
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{@get and @post}
+\tiny
+\begin{verbatim}
+from bottle import get, post, request, route,run
+
+def check_login(u,p):
+   if u == p == "dummy":
+         return True
+   else:
+         return False
+
+@route('/')
+@get('/login') # or @route('/login')
+def login():
+    return '''
+        <form action="/login" method="post">
+            Username: <input name="username" type="text" />
+            Password: <input name="password" type="password" />
+            <input value="Login" type="submit" />
+        </form>
+    '''
+
+@post('/login') # or @route('/login', method='POST')
+def do_login():
+    username = request.forms.get('username')
+    password = request.forms.get('password')
+    if check_login(username, password):
+        return "<p>Your login information was correct.</p>"
+    else:
+        return "<p>Login failed.</p>"
+        
+run()
+\end{verbatim}
+\end{frame}
+
+%one slide on having a text area, submitting a form etc.,
+\begin{frame}[fragile]
+\frametitle{Having text areas and submit buttons}
+\begin{verbatim}
+ <form>
+  First name: <input type="text" name="first"> <br>
+  Last name:  <input type="text" name="last"><br>
+  Tell me something about yourself: 
+<textarea name="message" rows="10" cols="30"> </textarea>
+<br><input type="submit" value="Submit">
+</form> 
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{That is not enough in real-life}
+\begin{enumerate}
+\item What should happen after submit? \pause
+\item Our data should go somewhere, something has to happen. What is the point otherwise? \pause
+\item So, we use "action" and "method" attributes in form. "action" tells us which function in the code gets activated after submitting the form. "method" tells us if it is a get or post request.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Example HTML with action and method}
+\begin{verbatim}
+ <form action="/tokenize" method="post" id="formid">
+ <textarea form ="formid" name="taname" cols="35">
+	</textarea>
+  <input value="Tokenize" type="submit" />
+        </form>
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{Some Example Web applications using Bottle}
+(uploaded on canvas - go through the code)
+\begin{enumerate}
+\item Tokenizer application
+\item Login page application
+\item Uploading a file
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{For more details on using Bottle}
+Look at the tutorial and other additional resources in: \\ \url{http://bottlepy.org/docs/dev/index.html}
+\end{frame}
+
+\begin{frame}
+\frametitle{To learn more about HTML}
+\url{http://www.w3schools.com/html/default.asp}	
+\end{frame}
+
+\begin{frame}
+\frametitle{Today's Exercise}
+\begin{enumerate}
+\item Do some lessons in the HTML tutorial from W3 schools
+\item After that, write a Python program using Bottle, that shows two text fields and a button in the initial screen:
+\\ First Name:
+\\ Last Name:
+\item In the program, have a function, that gets called when the user submits this information, which takes these two values, and returns - "Hello" + FirstName + LastName on the screen. 
+\item You can post your solutions in Today's forum if you finish this. 
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Extra Exercise}
+\begin{enumerate}
+\item Write a Python program using Bottle, that shows two text fields and a button in the initial screen to take two strings as input
+\item In the program, have a function, that gets called when the user submits this information, which takes these two values, and does the following:
+\begin{enumerate}
+\item checks if the two words are permutations of each other (i.e., god-dog; spam-maps etc.)
+\item Shows a message: "The words are permutations" or "The words are not permutations" depending on the result of the check.
+\item Note: Inputs don't have to be valid words. Any word strings are okay, and you can ignore punctuation, spaces, numbers etc. 
+\end{enumerate}
+\item You can post your solutions in Today's forum if you finish this. 
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Week}
+\begin{itemize}
+\item Tuesday: 
+\begin{itemize}
+\item Continue on this topic (but with more hands on work)
+\end{itemize}
+\item Thursday:
+\begin{itemize}
+\item General review
+\item Discussion about final projects (some ideas uploaded on canvas)
+\item Assignment 5 description
+\end{itemize}
+\item To do for you: See the final project descriptions, discuss among your team mates
+\item It is okay to come up with a new idea. But remember: you don't have all time in the world. 
+\end{itemize}
+\end{frame}
+
+\end{document}

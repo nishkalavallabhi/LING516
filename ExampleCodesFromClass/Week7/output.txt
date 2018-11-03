@@ -1,0 +1,10 @@
+line0 is rewritten
+line1 is rewritten
+line2 is rewritten
+line3 is rewritten
+line4 is rewritten
+line5 is rewritten
+line6 is rewritten
+line7 is rewritten
+line8 is rewritten
+line9 is rewritten

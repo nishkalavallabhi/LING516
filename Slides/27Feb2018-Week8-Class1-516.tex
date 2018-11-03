@@ -1,0 +1,248 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{27 Feb 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}%2minutes
+\frametitle{Class outline}
+\begin{itemize}
+\item Announcement about Thursday's extra class
+\item Review of Dictionaries in Python %10min
+\item Tuples %30min
+\item How to work with so many different data structures %10min
+\item Other datastructures (overview) %15min
+\item General review
+\item Assignment 4: I already mentioned last week itself that the deadline is March 10th, not 3rd (and I mentioned it is changed in Canvas, not in the pdf) - this is for the anonymous commenter who requested an extension.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Thursday's extra class}
+\begin{itemize}
+\item Ross 312, 4-6pm, 1st March 2018
+\item Optional.
+\item Agenda: Nothing specific. Q\&A session
+\item I also prepared a review document with 25 practice questions (I will upload on Canvas today)-you can come and do those too!
+\end{itemize}
+\end{frame}
+
+\begin{frame}%10min
+\frametitle{Dictionaries in Python: Review}
+\begin{enumerate}
+\item Dictionaries are a way of storing data as pairs (called: "key-value" pair). \pause
+\item Think of a telephone directory - we access it by names (keys) to get numbers (values). 
+\item An Example dictionary structure: eg = \{'Sowmya': 'India', 'Taichi': 'Japan', 'Nazlinur': 'Turkey', 'Brody':'USA'\} \pause
+\\ In this, eg['Sowmya'] returns me 'India'.
+\item A dictionary can have a dictionary embedded within itself too.
+\item One good and bad thing about dictionaries: You don't access them one by one sequentially. i.e., you cannot do eg[1] etc
+\item How does python know if we want a dictionary object? (Example code: xyz = dict())
+\item Use: one example is to build a word frequency list from a corpus. 
+\end{enumerate}
+%introduce hashing
+\end{frame}
+
+\begin{frame}
+\frametitle{Exercise from last class}
+\begin{itemize}
+\item Exercise 2 in textbook chapter: "Write a program that categorizes each mail message by which day of the week the commit was done. To do this look for lines that start with "From", then look for the third word and keep a running count of each of the days of the week. At the end of the program print out the contents of your dictionary (order does not matter)." 
+\item Solution: Let us see what was uploaded on Canvas. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile] %10min
+\frametitle{Tuples: An Introduction}
+\begin{itemize}
+\item Tuples are a collection of items, that look very similar to lists in python.
+\item However, the main difference is that tuples are immutable, whereas lists are mutable.
+\item Dictionaries have a method called items(), that returns a list of "tuples", where each item is a key-value pair.
+\begin{verbatim}
+d = {'a':10, 'b':1, 'c':22}
+t = d.items()
+print(t)
+[('a', 10), ('c', 22), ('b', 1)]
+\end{verbatim}
+\end{itemize} \tiny
+\url{https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences}
+\end{frame} 
+
+\begin{frame}[fragile]
+\frametitle{Tuples and Dictionaries}
+With tuples, we can have two iteration variables in a loop to read through a dictionary!
+\begin{verbatim}
+d = {'a':10, 'b':1, 'c':22}
+for key, val in d.items():
+    print(val, key)
+#The output is:
+10 a
+22 c
+1 b
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Defining a Tuple}
+\begin{itemize}
+\item t1 = 'a', 'b', 'c', 'd', 'e'
+\item t2 = ('a', 'b', 'c', 'd', 'e')
+\item t3 = tuple() \#creates empty tuple
+\item t4 = ('a',)
+\item lst = [1,2,3]
+\item t5 = tuple(lst)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Tuple Operations}
+Several list and string operators work with tuples too. Let our example tuple be: t = ('a', 'b', 'c', 'd', 'e')
+\begin{itemize}
+\item t[0] gives us 'a'
+\item slicing operation t[1:3] gives us a tuple ('b', 'c')
+\item Something like: t[0] = 'A' will throw an error as tuples are immutable.
+\item But, we can change the whole tuple. This won't throw an error: t = ('A',) + t[1:]
+\item A very useful thing: (name,addr) = "sowmya@iastate.edu".split("@") - saves "sowmya" into name and "iastate.edu" in to addr.
+\item name,addr = addr,name swaps name and addr values in just one line!
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile] %5min
+\frametitle{Comparing Tuples}
+\framesubtitle{\url{https://goo.gl/NeCnCa}}
+\begin{itemize}
+\item Comparison of tuples (and also other sequences like lists) works in a slightly counter-intuitive way. E.g., (0, 1, 2000000) $<$ (0, 3, 4) will be true in Python. \pause
+\item Sort example:
+\begin{verbatim}
+txt = 'but soft what light in yonder window breaks'
+words = txt.split()
+t = list()
+for word in words:
+   t.append((len(word), word))
+t.sort(reverse=True)
+res = list()
+for length, word in t:
+    res.append(word)
+print(res)
+\end{verbatim}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile] %15min -2 slides
+\frametitle{Back to Tuples and Dictionaries}
+Sorting a dictionary by values.
+\begin{verbatim}
+d = {'a':10, 'b':1, 'c':22}
+l = list()
+for key, val in d.items():
+    l.append((val, key))
+print(l) #what will this print?
+\end{verbatim} \pause
+\begin{verbatim}
+[(10, 'a'), (22, 'c'), (1, 'b')]
+l.sort(reverse=True)
+print(l)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Tuples and Dictionaries -2}
+Using tuples as dictionary keys: This is useful when we want to have dictionary keys as having more than one element. An example is: writing a program to create telephone directory.. where you want to index by both firstname and lastname. 
+\begin{itemize}
+\item Let us say we want to assign like this: directory[last,first] = number - (last,first) here is a tuple.
+\item To write a for loop for this dictionary, we then write: \\ for last, first in dictionary: ...
+\end{itemize}
+\end{frame}
+
+\begin{frame} %10 min
+\frametitle{How to work with all these data structures}
+\begin{itemize}
+\item Lists, Dictionaries and Tuples can get very complex and confusing, especially if one is nested inside another. So, you should be careful while writing your programs and learn to effectively debug them. \pause
+\item While debugging: when you are clueless about the errors you are getting, read the code line by line, work out manually for one or two examples to check if your program is doing everything right. \pause
+\item Use try-except blocks to catch known issues. Have print statements at necessary places during the debugging phase, to know what the code is doing.\pause
+\item Understand the different errors and why they occur. \pause
+\item Keep experimenting and use online tutorials, search for advice on stackoverflow.com, look for video lectures.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Other Data Structures - 1} %15min total for two slides.
+\begin{enumerate}
+\item A Stack: Stack is a kind of data structure where we assume items as being stacked one above the other. So, whichever was put in last needs to be taken out first (this is called LIFO - Last in First Out). Example code and working: \url{http://goo.gl/g2W5pH} \pause
+\item A Queue: Queue is the reverse of Stack. It is a FIFO (First in First Out). Example code and working: \url{http://goo.gl/Yw4zB0}
+\end{enumerate}
+\pause
+Uses: internal implementation of search operations, performing arithmatic operations, recursive operations and many more. A good explanation of various ways to implement and apply stacks and queues is here: \url{https://goo.gl/2yA0OW}
+\pause
+\\ Both a stack and a queue can be implemented using the list data structure in Python. Try this out by writing your own code (call them Stack.py and Queue.py) for these. 
+% point to: https://en.wikipedia.org/wiki/List_of_data_structures
+\end{frame}
+
+\begin{frame}
+\frametitle{Other Data Structures - 2}
+\begin{enumerate}
+\item A Tree: A tree is a data structure with nodes and connections between them, arranged in a root, branch, leaves style.
+\begin{itemize}
+\item use: representing hierarchical information, storing data for searching through, for routing information from one location to another.
+\item Trees also can be implemented using Lists in Python. Example: \url{http://goo.gl/UYE4yD}
+\end{itemize} \pause
+\item A Graph: This has a set of points called nodes or vertices and a lot of connections between them.
+\begin{itemize}
+\item use: any kind of problem which involves a network of relations (e.g., analysing social network, molecule interactions, computer networks 
+finding the shortest route etc.,)
+\item Graphs also can be implemented in Python using dictionaries and lists. Example: \url{http://goo.gl/3Tkjh2}
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Review Questions}
+\begin{itemize}
+\item Why write functions, when to write functions
+\item Return vs print statement in the function
+\end{itemize}
+(small example file)
+\end{frame}
+
+\begin{frame}
+\frametitle{Regular Expressions practice exercise}
+\begin{itemize}
+\item Download a .htm file (may be a wikipedia page)
+\item Open it in a notepad or something, just to see how it looks.
+\item Figure out how to use regular expressions to get all strings that match the pattern: $<td> .... .... </td>$ 
+\item How do you write a pattern with a beginning and end? 
+\item How many such matches exist? 
+\item Print the output, for each match.
+\end{itemize}
+This will essentially give you practice with many things we did so far (except dictionaries and tuples)
+\end{frame}
+
+\begin{frame}%10min
+\frametitle{Some Pythonic Fun}
+"30 Python language features and tricks you may not know about" \\
+\url{http://sahandsaba.com/thirty-python-language-features-and-tricks-you-may-not-know.html}
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Class}
+\begin{itemize}
+\item Thursday: Basics about making small applications that work on browsers (useful for doing Assignment 5. More on that next week)
+\item Browse through this website: \url{https://bottlepy.org/docs/dev/}
+\item For Thursday evening extra session: whoever is interested can just walk in. 
+\end{itemize}
+\end{frame}
+
+\end{document}
+

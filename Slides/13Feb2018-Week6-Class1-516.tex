@@ -1,0 +1,248 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+
+\author[Sowmya Vajjala]{Instructor: Sowmya Vajjala}
+
+
+\title[ENGL 516X]{ENGL 516X: \\ Methods of Formal Linguistic Analysis}
+\subtitle{Semester: Spring '18}
+
+\date{13 Feb 2018}
+
+\institute{Iowa State University, USA}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}\titlepage
+\end{frame}
+
+\begin{frame}%2minutes
+\frametitle{Class outline}
+\begin{itemize}
+\item Regular Expressions
+\item Using regex in Python code
+\item Regex in Python: Practice
+\item Links to Regex Practice exercises
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
+\centering
+\Large Regular Expressions
+\end{frame}
+
+\begin{frame}
+\frametitle{Regular Expressions}
+\begin{itemize}
+\item Regular expressions are used to do do pattern based information extraction from data. 
+\item They have their own syntax for doing pattern matching in different ways.
+\item They are very useful to process text and manipulate it.
+\item Regular expressions in python are in a module called "re" and you can use them in your code once you add a "import re" statement in your program/console.
+\item They can simplify a lot of your tasks, but they themselves can be very complicated.
+\item pythex.org - is what I will use today to explain the syntax. We will use import re in our code next week.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{RegEx syntax}
+\begin{enumerate}
+\item \^\{\} matches the beginning of a line. For example,
+\begin{itemize}
+\item a pattern \^{}Th matches all lines in a text file that start with Th
+\end{itemize}
+\item \$ matches the end of a line. For example,
+\begin{itemize}
+\item a pattern Th\$ matches all lines in a text file that end with Th
+\end{itemize}
+\item $\backslash s$ matches a white space character
+\item $\backslash S$  matches a non-white space character.
+\end{enumerate}
+%approx 20min
+\end{frame}
+
+\begin{frame}
+\frametitle{RegEx syntax}
+\begin{enumerate}
+\item . matches any character
+\item * -applies to the immediately preceding character and indicates to match zero or more of the preceding character(s).
+\begin{itemize}
+\item for example, te* matches all locations where there is a t, te, tt, tete etc.
+\end{itemize}
+\item + - applies to the immediately preceding character and indicates to match one or more of the preceding character(s).
+\begin{itemize}
+\item for example, te+ matches all locations where there is a te, tete, tetete etc.
+\end{itemize}
+\item \{\} is used next to a regular expression to indicate a range of occurrences of that expression. e.g., t\{1,3\} matches: t,tt,ttt. 
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{RegEx syntax - continued}
+\framesubtitle{The power of square brackets}
+\begin{enumerate}
+\item \lbrack aeiou\rbrack - matches a single character as long as the character is in this set.
+\item You can also specify ranges in square brackets. For example, [a-z0-9] matches all characters in lower case or a single digit.
+\item When the first character after the square brackets is a caret (\^{}), it works like a "not" keyword. So, [\^{}a-z0-9] matches all characters that are not lower cased letters, and not numbers.
+\end{enumerate}
+%approx 20min
+\end{frame}
+
+\begin{frame}
+\frametitle{Escape Character}
+What do you do if you want to match a ? or a . which also carry a meaning in regex? \pause
+\\ We "escape" them to tell regex module that these are real characters and not regex syntax. This is done using a $\backslash$ character. 
+
+ \medskip So, st$\backslash$. is a pattern that searches for all occurences of "st." in a string.
+%approx 20min
+\end{frame}
+
+\begin{frame}
+\frametitle{Regex practice on \url{http://pythex.org}}
+Go to APLING program homepage (apling.engl.iastate.edu) and copy the welcome message there into pythex test string area. Now, try to write regex patterns to get the following:
+
+\begin{enumerate}
+\item All occurences of the word "is" (Not th\textbf{is}, lingu\textbf{is}tics, etc. Only "is") - $\backslash$bis$\backslash$b
+\item All occurences of the letter e, irrespective of the case. - $e|E$
+\item All occurences of "es" where it occurs in the middle of the word (i.e., es should not be followed by a space, comma, fullstop etc) - [a-z]es[a-z]
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{RegEx: recap exercise}
+\begin{itemize}
+\item What is the regular expression to select all phone-numbers from the following text:
+\begin{verbatim}
+University Assistance
+515-294-4428	Department of Public Safety
+515-294-3322	Department of Residence
+515-294-5100	Facilities Planning and Management
+515-294-4444	Help Van
+Poison Control
+800-222-1222	Iowa Poison Control Center
+\end{verbatim} 
+(source: \url{http://info.iastate.edu/emergency/}) \pause
+\item My expression: ([0-9]+-*)+ \pause
+\item Slightly complex, but more precise one: ([0-9]\{3\}-)\{2\}[0-9]\{4\}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Using RegEx in Python}
+\framesubtitle{Python's "re" module}
+\begin{itemize}
+\item You should import "re" module of python using the statement: import re
+\item Two useful functions in re module are: search() and findall().
+\item search() in re module is similar to the find() method for Strings, but just more sophisticated.
+\begin{itemize}
+\item re.search("XX[0-9]",str) searches for the first occurence of "XX" followed by a digit in a string and returns the corresponding match.
+\end{itemize}
+\item findall() returns all matches of a pattern in a string, as a list of matches.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Searching a text with RegEx}
+\framesubtitle{re.search() function}
+An example code: RegexSearchExamples.py 
+\end{frame}
+
+\begin{frame}
+\frametitle{A short detour: What is a List?}
+\begin{itemize}
+\item A list is a sequence of values. A string can be seen as a list of characters. There can be a list of strings as well.
+\item These values in a list are called "elements" or "items".
+\item Lists in Python are identified by the presence of square brackets. 
+\item Examples:
+\begin{enumerate}
+\item \lbrack 516,515,520,540\rbrack - is a list of integers
+\item \lbrack"Python","Java","Perl","R","Ruby"\rbrack - is a list of strings.
+\item \lbrack'spam', 2.0, 5, \lbrack10, 20\rbrack\rbrack - is list with elements of various data types. There is a list inside a list too!
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{An Example list and its use}
+Look at this code:
+\begin{verbatim}
+str = "Look at this code"
+demoList = str.split(" ") #space is here the "delimiter".
+#Splits the string wherever there is a space.
+print(demoList)
+['Look', 'at', 'this', 'code']
+print(len(demoList) 
+# prints the number of items in a demoList object. 4 here.
+print(demoList[1]) 
+# prints "at".
+\end{verbatim}
+
+More on lists on thursday.
+\end{frame}
+
+\begin{frame}
+\frametitle{Extracting information from a text using RegEx}
+\framesubtitle{re.findall() function}
+Example of findall() and a comparison with search() - Example codes on Canvas.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{What is this pattern doing? -1}
+\begin{verbatim}
+if re.search('^X\S*: [0-9.]+', line):
+    print(line)
+\end{verbatim}
+\pause
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{What is this pattern doing? -2}
+\begin{verbatim}
+x = re.findall('^Details:.*rev=([0-9]+)', line)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Work with this program}
+Download grepProgram.py and mbox.txt files from Canvas. Using this program, find out the number of times did:
+\begin{itemize} 
+\item source@collab.sakaiproject.org receive emails.
+\item source@collab.sakaiproject.org appear in the text anywhere. 
+\item email addresses from the domain iupui.edu
+\item Example interaction with the program:
+\end{itemize}
+\begin{verbatim}
+Enter a regular expression: ^Author
+mbox.txt had 1798 lines that matched ^Author
+\end{verbatim}
+\end{frame}
+
+\begin{frame}
+\frametitle{Resources for PythonRegex}
+\begin{enumerate}
+\item For learning:
+\begin{itemize}
+\item Python Docs link \url{https://goo.gl/TTunhz}
+\item \url{http://regexone.com/references/python}
+\end{itemize}
+\item For practice:
+\begin{itemize}
+\item \url{http://pythex.org/}
+\item \url{https://regex101.com/\#python}
+\item \url{http://www.pyregex.com/}
+\item \url{https://txt2re.com/}
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Next Class}
+\begin{itemize}
+\item Topics: Lists in python
+\item Readings: Chapter on Lists in the textbook
+\item Do: The other exercise at the end of the chapter on regular expressions.
+\end{itemize}
+\end{frame}
+\end{document}
